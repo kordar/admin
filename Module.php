@@ -1,16 +1,15 @@
 <?php
-
-namespace kordar\admin;
+namespace kordar\yak;
 
 /**
- * ace module definition class
+ * yak module definition class
  */
 class Module extends \yii\base\Module
 {
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'kordar\admin\controllers';
+    public $controllerNamespace = 'kordar\yak\controllers';
 
     /**
      * @inheritdoc
