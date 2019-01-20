@@ -15,7 +15,28 @@
     },
     "autoload": {
         "psr-4": {
-            "kordar\\yak\\": ""
+            "kordar\\yak\\": "src"
+        }
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": true,
+            "asset-installer-paths": {
+                "bower-asset-library": "vendor/bower-asset"
+            },
+            "repositories":
+            {
+                "bower-asset/ace-admin":
+                {
+                    "type": "bower-vcs",
+                    "url": "https://github.com/bopoda/ace.git"
+                },
+                "bower-asset/eve": {
+                    "type": "bower-vcs",
+                    "url": "https://github.com/adobe-webplatform/eve.git"
+                }
+            }
         }
     }
 }
