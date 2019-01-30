@@ -1,5 +1,5 @@
 {
-    "name": "ace/kordar-yak",
+    "name": "kordar/yak",
     "description": "backend manager",
     "type": "yii2-extension",
     "keywords": ["yii2","extension"],
