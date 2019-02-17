@@ -29,12 +29,12 @@ class ResetPasswordForm extends Model
     public function __construct($token, $config = [])
     {
         if (empty($token) || !is_string($token)) {
-            $message = \Yii::t('ace.login', 'Password reset token cannot be blank.');
+            $message = \Yii::t('yak', 'Password reset token cannot be blank.');
             throw new InvalidParamException($message);
         }
         $this->_user = User::findByPasswordResetToken($token);
         if (!$this->_user) {
-            $message = \Yii::t('ace.login', 'Wrong password reset token.');
+            $message = \Yii::t('yak', 'Wrong password reset token.');
             throw new InvalidParamException($message);
         }
         parent::__construct($config);
@@ -48,15 +48,15 @@ class ResetPasswordForm extends Model
         return [
             [['password', 'repassword'], 'required'],
             [['password', 'repassword'], 'string', 'min' => 6],
-            ['repassword', 'compare', 'compareAttribute'=>'password', 'message'=>\Yii::t('ace', 'The password is inconsistent twice')]
+            ['repassword', 'compare', 'compareAttribute'=>'password', 'message'=>\Yii::t('yak', 'The password is inconsistent twice')]
         ];
     }
 
     public function attributeLabels()
     {
         return [
-            'password' => \Yii::t('ace.login', 'Password'),
-            'repassword' => \Yii::t('ace.login', 'confirmPassword')
+            'password' => \Yii::t('yak', 'Password'),
+            'repassword' => \Yii::t('yak', 'confirmPassword')
         ];
     }
 

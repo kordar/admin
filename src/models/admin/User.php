@@ -1,9 +1,9 @@
 <?php
 namespace kordar\yak\models\admin;
 
+use kordar\yak\models\Yak;
 use Yii;
 use kordar\yak\helpers\ActiveFormHelper;
-use kordar\yak\models\Ace;
 use yii\web\IdentityInterface;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -25,7 +25,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $updated_at
  * @property string $password write-only password
  */
-class User extends Ace implements IdentityInterface
+class User extends Yak implements IdentityInterface
 {
     use PersonalTrait;
 
@@ -212,20 +212,20 @@ class User extends Ace implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('ace.admin', 'ID'),
-            'name' => Yii::t('ace.admin', 'Name'),
-            'avatar' => Yii::t('ace.admin', 'Avatar'),
-            'username' => Yii::t('ace.admin', 'Username'),
-            'auth_key' => Yii::t('ace.admin', 'Auth Key'),
-            'password_hash' => Yii::t('ace.admin', 'Password Hash'),
-            'password_reset_token' => Yii::t('ace.admin', 'Password Reset Token'),
-            'email' => Yii::t('ace.admin', 'Email'),
-            'status' => Yii::t('ace.admin', 'Status'),
-            'type' => Yii::t('ace.admin', 'Type'),
-            'created_at' => Yii::t('ace', 'Created At'),
-            'updated_at' => Yii::t('ace', 'Updated At'),
-            'status_name' => Yii::t('ace.admin', 'Status Name'),
-            'type_name' => Yii::t('ace.admin', 'Type Name'),
+            'id' => Yii::t('yak', 'ID'),
+            'name' => Yii::t('yak', 'Name'),
+            'avatar' => Yii::t('yak', 'Avatar'),
+            'username' => Yii::t('yak', 'Username'),
+            'auth_key' => Yii::t('yak', 'Auth Key'),
+            'password_hash' => Yii::t('yak', 'Password Hash'),
+            'password_reset_token' => Yii::t('yak', 'Password Reset Token'),
+            'email' => Yii::t('yak', 'Email'),
+            'status' => Yii::t('yak', 'Status'),
+            'type' => Yii::t('yak', 'Type'),
+            'created_at' => Yii::t('yak', 'Created At'),
+            'updated_at' => Yii::t('yak', 'Updated At'),
+            'status_name' => Yii::t('yak', 'Status Name'),
+            'type_name' => Yii::t('yak', 'Type Name'),
         ];
     }
 
@@ -233,16 +233,16 @@ class User extends Ace implements IdentityInterface
     static public function statusList()
     {
         return [
-            self::STATUS_DELETED => Yii::t('ace.admin', 'Delete'),
-            self::STATUS_ACTIVE => Yii::t('ace.admin', 'Normal')
+            self::STATUS_DELETED => Yii::t('yak', 'Delete'),
+            self::STATUS_ACTIVE => Yii::t('yak', 'Normal')
         ];
     }
 
     static public function typeList()
     {
         return [
-            self::TYPE_NORMAL => Yii::t('ace.admin', 'Normal Admin'),
-            self::TYPE_SUPER => Yii::t('ace.admin', 'Super Admin')
+            self::TYPE_NORMAL => Yii::t('yak', 'Normal Admin'),
+            self::TYPE_SUPER => Yii::t('yak', 'Super Admin')
         ];
     }
 

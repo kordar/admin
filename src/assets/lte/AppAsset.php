@@ -1,5 +1,5 @@
 <?php
-namespace kordar\yak\assets\ace;
+namespace kordar\yak\assets\lte;
 
 use yii\web\AssetBundle;
 
@@ -8,7 +8,7 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $sourcePath = '@kordar/yak/resource/ace';
+    public $sourcePath = '@kordar/yak/resource/lte';
 
     public $css = [
         'yak.css'
@@ -20,7 +20,6 @@ class AppAsset extends AssetBundle
 
     public $depends = [
         'yii\web\YiiAsset',
-        'kordar\yak\assets\ace\AceAsset',
-        'kordar\yak\assets\ace\AceScriptAsset',
+        'kordar\yak\assets\lte\LteAsset'
     ];
 }

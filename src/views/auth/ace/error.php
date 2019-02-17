@@ -7,7 +7,7 @@
 
 use yii\helpers\Html;
 
-$this->title = \Yii::t('ace.login', 'Error Page');
+$this->title = \Yii::t('yak', 'Error Page');
 ?>
 
     <div class="main-content-inner">

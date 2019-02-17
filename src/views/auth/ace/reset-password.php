@@ -1,8 +1,9 @@
 <?php
+
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = \Yii::t('ace.login', 'Reset Password');
+$this->title = \Yii::t('yak', 'Reset Password');
 
 /**
  * @var $model
@@ -18,28 +19,28 @@ $this->title = \Yii::t('ace.login', 'Reset Password');
             </h4>
 
             <div class="space-6"></div>
-            <p><?= \Yii::t('ace.login', 'Enter your details to begin:')?> </p>
+            <p><?= \Yii::t('yak', 'Enter your details to begin:')?> </p>
 
             <?php $form = ActiveForm::begin([
-                'method'=>'post',
+                'method' => 'post',
             ]) ?>
 
             <fieldset>
 
                 <?= $form->field($model, 'password', [
                     'template' => "<span class='block input-icon input-icon-right'>{input}<i class=\"ace-icon fa fa-lock\"></i></span>{error}"
-                ])->passwordInput(['placeholder' => \Yii::t('ace.login', 'Password')]) ?>
+                ])->passwordInput(['placeholder' => \Yii::t('yak', 'Password')]) ?>
 
                 <?= $form->field($model, 'repassword', [
                     'template' => "<span class='block input-icon input-icon-right'>{input}<i class=\"ace-icon fa fa-lock\"></i></span>{error}"
-                ])->passwordInput(['placeholder' => \Yii::t('ace.login', 'confirmPassword')]) ?>
+                ])->passwordInput(['placeholder' => \Yii::t('yak', 'confirmPassword')]) ?>
 
                 <div class="space-6"></div>
 
                 <div class="clearfix">
 
                     <?= Html::submitButton(
-                        Html::tag('span', \Yii::t('ace', 'Submit'), ['class'=>'bigger-110']) . "\n" .
+                        Html::tag('span', \Yii::t('yak', 'Submit'), ['class'=>'bigger-110']) . "\n" .
                         Html::tag('i', '', ['class'=>'ace-icon fa fa-arrow-right icon-on-right']),
                         ['class' => 'width-35 pull-right btn btn-sm btn-success','name' => 'login-button'])
                     ?>
@@ -54,7 +55,7 @@ $this->title = \Yii::t('ace.login', 'Reset Password');
         <div class="toolbar center">
 
             <?= Html::a(
-                Html::tag('i', \Yii::t('ace.login', 'Back to login'), ['class'=>'ace-icon fa fa-arrow-left']),
+                Html::tag('i', \Yii::t('yak', 'Back to login'), ['class'=>'ace-icon fa fa-arrow-left']),
                 ['auth/login'], ['class'=>'back-to-login-link']
             ) ?>
 

@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use kordar\ace\web\helper\GridViewHelper;
-use kordar\ace\web\helper\SidebarHelper;
+use kordar\yak\helpers\GridViewHelper;
+use kordar\yak\helpers\SidebarHelper;
 
 /* @var $this yii\web\View */
-/* @var $searchModel kordar\ace\models\menu\MenuSearch */
+/* @var $searchModel \kordar\yak\models\menu\MenuSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = \Yii::t('ace.menu', 'Menus');

@@ -2,7 +2,7 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = \Yii::t('ace.login', 'Retrieve The Password');
+$this->title = \Yii::t('yak', 'Retrieve The Password');
 
 /**
  * @var $model
@@ -21,7 +21,7 @@ $this->title = \Yii::t('ace.login', 'Retrieve The Password');
 
             <div class="space-6"></div>
             <p>
-                <?= \Yii::t('ace.login', 'Enter your email and receive instructions')?>
+                <?= \Yii::t('yak', 'Enter your email and receive instructions')?>
             </p>
 
             <?php $form = ActiveForm::begin([
@@ -39,7 +39,7 @@ $this->title = \Yii::t('ace.login', 'Retrieve The Password');
 
                     <?= Html::submitButton(
                         '<i class="ace-icon fa fa-lightbulb-o"></i>
-                            <span class="bigger-110">' . \Yii::t('ace.login', 'Send Me') . '</span>',
+                            <span class="bigger-110">' . \Yii::t('yak', 'Send Me') . '</span>',
                         ['class' => 'width-35 pull-right btn btn-sm btn-danger'])
                     ?>
 
@@ -51,7 +51,7 @@ $this->title = \Yii::t('ace.login', 'Retrieve The Password');
 
         <div class="toolbar center">
             <?= Html::a(
-                \Yii::t('ace.login', 'Back to login') . "\n<i class=\"ace-icon fa fa-arrow-right\"></i>",
+                \Yii::t('yak', 'Back to login') . "\n<i class=\"ace-icon fa fa-arrow-right\"></i>",
                 ['login'],
                 ['class'=>'back-to-login-link']
             ) ?>

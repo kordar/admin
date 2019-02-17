@@ -5,7 +5,7 @@ namespace kordar\yak\models\menu;
 use kordar\yak\models\admin\User as Admin;
 use kordar\yak\libs\tree\GenerateTreeByArray;
 use kordar\yak\libs\tree\MenuIterator;
-use kordar\yak\models\Ace;
+use kordar\yak\models\Yak;
 use yii\behaviors\BlameableBehavior;
 
 /**
@@ -24,7 +24,7 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class Menu extends Ace
+class Menu extends Yak
 {
     /**
      * @inheritdoc

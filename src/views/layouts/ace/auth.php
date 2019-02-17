@@ -2,12 +2,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use kordar\ace\web\assets\AceAsset;
 use yii\helpers\Html;
 use kordar\yak\helpers\ConfigHelper;
 use yii\helpers\ArrayHelper;
 
-AceAsset::register($this);
+\kordar\yak\assets\ace\AceAsset::register($this);
 
 $config = ConfigHelper::config('auth-layout');
 

@@ -45,7 +45,7 @@ class _ACE extends AbstractNavbar
     protected function personal()
     {
         // TODO: Implement personal() method.
-        $defaultAvatar = ArrayHelper::getValue($this->config, 'default-avatar', '#');
+        $defaultAvatar = ArrayHelper::getValue(\Yii::$app->params['yak'], 'default-avatar', '#');
 
         $a = Html::a(Html::img($this->user->getAvatar($defaultAvatar), ['class' => 'nav-user-photo']) . '<span class="user-info"><small>Welcome,</small>' . $this->user->getName() . '</span>
 								<i class="ace-icon fa fa-caret-down"></i>', '#', ['class' => 'dropdown-toggle', 'data-toggle' => 'dropdown']);

@@ -4,7 +4,7 @@
 
 use kordar\yak\assets\ace\AppAsset;
 use yii\helpers\Html;
-use kordar\ace\web\helper\SidebarHelper;
+use kordar\yak\helpers\SidebarHelper;
 use yii\helpers\ArrayHelper;
 
 $assetObj = AppAsset::register($this);

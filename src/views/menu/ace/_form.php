@@ -3,10 +3,10 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kordar\yak\helpers\SidebarHelper;
-use kordar\ace\web\helper\ActiveFormHelper;
+use kordar\yak\helpers\ActiveFormHelper;
 
 /* @var $this yii\web\View */
-/* @var $model kordar\yak\models\menu\Menu */
+/* @var $model \kordar\yak\models\menu\Menu */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

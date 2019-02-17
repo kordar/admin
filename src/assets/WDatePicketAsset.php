@@ -5,7 +5,7 @@ use kordar\yak\assets\ace\AceBundleAsset;
 
 class WDatePicketAsset extends AceBundleAsset
 {
-    public $sourcePath = '@kordar/yak/resource/My97DatePicker';
+    public $sourcePath = '@bower/yak-assets/My97DatePicker';
 
     public $js = [
         'WdatePicker.js'

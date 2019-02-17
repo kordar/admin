@@ -8,7 +8,7 @@ class GridViewHelper
 {
     static public function dropDownListYesOrNo($prompt = '')
     {
-        return [0 => Yii::t('ace', 'No'), 1 => Yii::t('ace', 'Yes')];
+        return [0 => Yii::t('yak', 'No'), 1 => Yii::t('yak', 'Yes')];
     }
 
     static public function actionColumn($options = [])
@@ -48,7 +48,7 @@ class GridViewHelper
                 'url' => $url, 'key' => $key, 'class' => 'alert-danger', 'title' => 'Grid Delete', 'attribute' => []
             ], $options);
             $url = GridViewHelper::getUrl($options['attribute'], $model, $options['url'], $options['key']);
-            return Html::a(Html::tag('span', Yii::t('ace', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('ace', $options['title']),
+            return Html::a(Html::tag('span', Yii::t('yak', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('yak', $options['title']),
                 'data' => [
                     'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
                     'method' => 'post'
@@ -64,7 +64,7 @@ class GridViewHelper
                 'url' => $url, 'key' => $key, 'class' => 'alert-info', 'title' => 'Grid Update', 'attribute' => []
             ], $options);
             $url = GridViewHelper::getUrl($options['attribute'], $model, $options['url'], $options['key']);
-            return Html::a(Html::tag('span', Yii::t('ace', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('ace', $options['title'])]);
+            return Html::a(Html::tag('span', Yii::t('yak', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('yak', $options['title'])]);
         };
     }
 
@@ -75,7 +75,7 @@ class GridViewHelper
                 'url' => $url, 'key' => $key, 'class' => 'alert-success', 'title' => 'Grid View', 'attribute' => []
             ], $options);
             $url = GridViewHelper::getUrl($options['attribute'], $model, $options['url'], $options['key']);
-            return Html::a(Html::tag('span', Yii::t('ace', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('ace', $options['title'])]);
+            return Html::a(Html::tag('span', Yii::t('yak', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('yak', $options['title'])]);
         };
     }
 
@@ -87,7 +87,7 @@ class GridViewHelper
                 'url' => $url, 'key' => $key, 'class' => 'alert-warning', 'title' => 'Grid Assign', 'attribute' => []
             ], $options);
             $url = GridViewHelper::getUrl($options['attribute'], $model, $options['url'], $options['key']);
-            return Html::a(Html::tag('span', Yii::t('ace', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('ace', $options['title'])]);
+            return Html::a(Html::tag('span', Yii::t('yak', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('yak', $options['title'])]);
         };
     }
 
@@ -98,7 +98,7 @@ class GridViewHelper
                 'url' => $url, 'key' => $key, 'class' => 'alert-success', 'title' => 'Grid Button', 'attribute' => []
             ], $options);
             $url = GridViewHelper::getUrl($options['attribute'], $model, $options['url'], $options['key']);
-            return Html::a(Html::tag('span', Yii::t('ace', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('ace', $options['title'])]);
+            return Html::a(Html::tag('span', Yii::t('yak', $options['title'])), $url, ['class' => $options['class'], 'title' => Yii::t('yak', $options['title'])]);
         };
     }
 

@@ -3,9 +3,9 @@
 namespace kordar\yak\controllers;
 
 use Yii;
-use kordar\ace\models\menu\Menu;
-use kordar\ace\models\menu\MenuView;
-use kordar\ace\models\menu\MenuSearch;
+use kordar\yak\models\menu\Menu;
+use kordar\yak\models\menu\MenuView;
+use kordar\yak\models\menu\MenuSearch;
 use yii\web\NotFoundHttpException;
 
 /**

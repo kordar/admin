@@ -1,7 +1,6 @@
 <?php
 namespace kordar\yak\assets\ace;
 
-use kordar\ace\web\assets\AceBundleAsset;
 use yii\web\View;
 
 /**

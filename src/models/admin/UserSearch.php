@@ -6,7 +6,7 @@ use kordar\yak\traits\SearchTrait;
 use yii\data\ActiveDataProvider;
 
 /**
- * AdminSearch represents the model behind the search form about `kordar\ace\models\Admin`.
+ * AdminSearch represents the model behind the search form about `kordar\yak\models\admin\User`.
  */
 class UserSearch extends User
 {

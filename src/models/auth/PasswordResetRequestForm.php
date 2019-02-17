@@ -24,7 +24,7 @@ class PasswordResetRequestForm extends Model
             ['email', 'exist',
                 'targetClass' => User::className(),
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => \Yii::t('ace.login', 'This email does not exist')
+                'message' => \Yii::t('yak', 'This email does not exist')
             ],
         ];
     }
@@ -63,5 +63,12 @@ class PasswordResetRequestForm extends Model
             ->setTo($this->email)
             ->setSubject('Password reset for ' . \Yii::$app->name)
             ->send();
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'email' => \Yii::t('yak', 'Email')
+        ];
     }
 }
