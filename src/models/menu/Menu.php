@@ -67,18 +67,18 @@ class Menu extends Yak
     public function attributeLabels()
     {
         return [
-            'id' => \Yii::t('ace.menu', 'ID'),
-            'title' => \Yii::t('ace.menu', 'Title'),
-            'href' => \Yii::t('ace.menu', 'Href'),
-            'parent_id' => \Yii::t('ace.menu', 'Parent ID'),
-            'language' => \Yii::t('ace.menu', 'Language'),
-            'icon' => \Yii::t('ace.menu', 'Icon'),
-            'active' => \Yii::t('ace.menu', 'Active'),
-            'sort' => \Yii::t('ace.menu', 'Sort'),
-            'status' => \Yii::t('ace.menu', 'Status'),
-            'hidden' => \Yii::t('ace.menu', 'Hidden'),
-            'created_at' => \Yii::t('ace.menu', 'Created At'),
-            'updated_at' => \Yii::t('ace.menu', 'Updated At'),
+            'id' => \Yii::t('yak', 'ID'),
+            'title' => \Yii::t('yak', 'Title'),
+            'href' => \Yii::t('yak', 'Href'),
+            'parent_id' => \Yii::t('yak', 'Parent ID'),
+            'language' => \Yii::t('yak', 'Language'),
+            'icon' => \Yii::t('yak', 'Icon'),
+            'active' => \Yii::t('yak', 'Active'),
+            'sort' => \Yii::t('yak', 'Sort'),
+            'status' => \Yii::t('yak', 'Status'),
+            'hidden' => \Yii::t('yak', 'Hidden'),
+            'created_at' => \Yii::t('yak', 'Created At'),
+            'updated_at' => \Yii::t('yak', 'Updated At'),
         ];
     }
 

@@ -2,8 +2,8 @@
 
 namespace kordar\yak\models\rbac;
 
+use kordar\yak\models\Yak;
 use Yii;
-use kordar\yak\models\Ace;
 
 /**
  * This is the model class for table "{{%auth_item}}".
@@ -16,7 +16,7 @@ use kordar\yak\models\Ace;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class AuthItem extends Ace
+class AuthItem extends Yak
 {
     /**
      * @inheritdoc
@@ -49,13 +49,13 @@ class AuthItem extends Ace
     public function attributeLabels()
     {
         return [
-            'name' => Yii::t('ace.rbac', 'Item Name'),
-            'type' => Yii::t('ace.rbac', 'Item Type'),
-            'description' => Yii::t('ace.rbac', 'Item Description'),
-            'rule_name' => Yii::t('ace.rbac', 'Item Rule Name'),
-            'data' => Yii::t('ace.rbac', 'Item Data'),
-            'created_at' => Yii::t('ace', 'Created At'),
-            'updated_at' => Yii::t('ace', 'Updated At'),
+            'name' => Yii::t('yak', 'Item Name'),
+            'type' => Yii::t('yak', 'Item Type'),
+            'description' => Yii::t('yak', 'Item Description'),
+            'rule_name' => Yii::t('yak', 'Item Rule Name'),
+            'data' => Yii::t('yak', 'Item Data'),
+            'created_at' => Yii::t('yak', 'Created At'),
+            'updated_at' => Yii::t('yak', 'Updated At'),
         ];
     }
 

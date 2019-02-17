@@ -127,7 +127,7 @@ class MenuController extends YakController
     {
         $rs = parent::beforeAction($action);
         if ($rs && in_array($action->id, ['create', 'update', 'delete'])) {
-            $this->on('GENERATE_SIDE_BAR', ['\kordar\ace\models\menu\Menu', 'sidebarTree']);
+            $this->on('GENERATE_SIDE_BAR', ['\kordar\yak\models\menu\Menu', 'sidebarTree']);
         }
         return $rs;
     }

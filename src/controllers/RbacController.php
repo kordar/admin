@@ -228,10 +228,10 @@ class RbacController extends YakController
 
         if (Yii::$app->request->isPost) {
             if ($model->load(Yii::$app->request->post(), '') && $model->setChildrenToRole($id)) {
-                Yii::$app->session->setFlash('success', Html::tag('b', '[' . $id . ']') . Yii::t('ace.rbac', 'Permission assignment is successful'));
+                Yii::$app->session->setFlash('success', Html::tag('b', '[' . $id . ']') . Yii::t('yak', 'Permission assignment is successful'));
                 return $this->redirect(['roles']);
             }
-            Yii::$app->session->setFlash('warning', Yii::t('ace.rbac', 'Permission assignment failed'));
+            Yii::$app->session->setFlash('warning', Yii::t('yak', 'Permission assignment failed'));
         }
 
         return $this->renderTpl('assign', ['name' => $id]);

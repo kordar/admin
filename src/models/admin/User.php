@@ -1,9 +1,9 @@
 <?php
 namespace kordar\yak\models\admin;
 
+use kordar\yak\helpers\YakHelper;
 use kordar\yak\models\Yak;
 use Yii;
-use kordar\yak\helpers\ActiveFormHelper;
 use yii\web\IdentityInterface;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -248,7 +248,7 @@ class User extends Yak implements IdentityInterface
 
     static public function extFieldsByCase()
     {
-        return ActiveFormHelper::extSelectCase([
+        return YakHelper::extSelectCase([
             'status' => ['alias' => 'status_name', 'items' => self::statusList()],
             'type' => ['alias' => 'type_name', 'items' => self::typeList()],
         ]);

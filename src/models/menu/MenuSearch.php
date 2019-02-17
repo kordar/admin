@@ -41,7 +41,7 @@ class MenuSearch extends MenuView
      */
     public function search($params)
     {
-        $extenHidden = "(CASE `hidden` WHEN 0 THEN '" . Yii::t('ace', 'No') . "' WHEN 1 THEN '" . Yii::t('ace', 'Yes') . "' END)";
+        $extenHidden = "(CASE `hidden` WHEN 0 THEN '" . Yii::t('yak', 'No') . "' WHEN 1 THEN '" . Yii::t('yak', 'Yes') . "' END)";
         $query = MenuView::find()->select('*')->addSelect([$extenHidden . ' AS hidden_name']);
 
         // add conditions that should always apply here

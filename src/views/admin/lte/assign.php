@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use kordar\yak\helpers\YakHelper;
+use kordar\yak\helpers\ActiveFormHelper;
 use kordar\yak\helpers\RbacHelper;
 
 
@@ -37,7 +37,7 @@ $this->params['link'] = 'yak/admin/index';
         <div class="well well-checkbox">
             <h4 class="green smaller lighter"><?= Yii::t('yak', 'Assign Roles')?></h4>
 
-            <?= Html::checkboxList('roles', RbacHelper::rolesByUser($userId), RbacHelper::roles(), YakHelper::aceCheckboxListOptions());?>
+            <?= Html::checkboxList('roles', RbacHelper::rolesByUser($userId), RbacHelper::roles(), ActiveFormHelper::aceCheckboxListOptions());?>
 
         </div>
 
@@ -45,14 +45,14 @@ $this->params['link'] = 'yak/admin/index';
             <h4 class="orange smaller lighter"><?= Yii::t('yak', 'Assign Permissions')?></h4>
 
             <?php foreach (RbacHelper::permissionsToGroup() as $permission):?>
-                <?= Html::checkboxList('permissions', RbacHelper::permissionsByUser($userId), $permission, YakHelper::aceCheckboxListOptions());?>
+                <?= Html::checkboxList('permissions', RbacHelper::permissionsByUser($userId), $permission, ActiveFormHelper::aceCheckboxListOptions());?>
                 <hr>
             <?php endforeach;?>
 
         </div>
 
         <div class="form-group">
-            <?= Html::submitButton('<i class="fa fa-save bigger-110"></i> ' . Yii::t('yak', 'Submit'), ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton(Yii::t('yak', 'Submit'), ['class' => 'btn btn-success']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

@@ -52,7 +52,7 @@ class MenuView extends Menu
     public function attributeLabels()
     {
         $attributes = parent::attributeLabels();
-        $attributes['parent_title'] = Yii::t('ace.menu', 'Parent Title');
+        $attributes['parent_title'] = Yii::t('yak', 'Parent Title');
         return $attributes;
     }
 }

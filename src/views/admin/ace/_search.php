@@ -31,7 +31,7 @@ use kordar\yak\models\admin\User AS Admin;
     <?= $form->field($model, 'type', ['template'=>"{input}"])->dropDownList(Admin::typeList(), ['prompt'=>'管理员类型']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('<i class="ace-icon fa fa-search bigger-110"></i> ' . Yii::t('ace', 'Search'), ['class' => 'btn btn-primary btn-sm']) ?>
+        <?= Html::submitButton('<i class="ace-icon fa fa-search bigger-110"></i> ' . Yii::t('yak', 'Search'), ['class' => 'btn btn-primary btn-sm']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

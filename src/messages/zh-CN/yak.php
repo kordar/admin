@@ -25,7 +25,7 @@ return [
 
     'Login' => '登录', 'Or Login Using' => '第三方登录', 'Reset' => '重置', 'Register' => '注册',
 
-    'Username' => '用户名',
+    'Username' => '帐号',
     'Password' => '密码',
     'confirmPassword' => '重复密码',
     'Remember Me' => '记住我',
@@ -42,7 +42,7 @@ return [
     'Create Admin' => '创建管理员',
     'Update Admin' => '更新管理员',
 
-    'ID' => '管理员ID',
+    'ID' => 'ID',
     'Name' => '用户名',
     'Avatar' => '头像',
     'Auth Key' => '认证 key',
@@ -99,6 +99,7 @@ return [
     'Update' => '更新',
     'Submit' => '提交',
     'Search' => '查询',
+    'Save' => '保存',
 
     'Welcome' => '欢迎',
 

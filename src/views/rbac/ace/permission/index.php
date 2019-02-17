@@ -2,24 +2,20 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use kordar\yak\helpers\GridViewHelper;
 
 /* @var $this yii\web\View */
-/* @var $searchModel kordar\ace\models\rbac\AuthItemSearch */
+/* @var $searchModel kordar\yak\models\rbac\AuthItemSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('ace.rbac', 'Permissions');
+$this->title = Yii::t('yak', 'Permissions');
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'icon' => 'fa-list'];
+
+$this->params['small-title'] = Yii::t('yak', 'Create') . ' &amp; ' .  Yii::t('yak', 'Edit');
 ?>
 <div class="auth-item-index">
 
-    <?= \kordar\yak\widgets\header\Header::widget(['info' => [
-        'title' => Html::encode($this->title),
-        'small' => Yii::t('ace', 'Create') . ' &amp; ' .  Yii::t('ace', 'Edit')
-    ]]) ?>
-
     <p>
-        <?= Html::a(Html::tag('i', '', ['class'=>'fa fa-plus']) . ' ' . Yii::t('ace.rbac', 'Create Permission'), ['create-permission'], ['class' => 'btn btn-success btn-sm']) ?>
+        <?= \kordar\yak\helpers\YakHelper::renderLinker(\Yii::t('yak', 'Create Permission'), ['create-permission'], ['class' => 'btn btn-success btn-sm'], 'fa-plus-circle') ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -35,17 +31,14 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'icon' => 'fa-list'];
             // 'created_at',
             // 'updated_at',
 
-            // ['class' => 'yii\grid\ActionColumn'],
-
-            GridViewHelper::actionColumn([
-                'title' => '操作',
-                'template' => ['view', 'update', 'delete'],
-                'item' => [
-                    'view' => ['url' => 'view-permission'],
-                    'update' => ['url' => 'update-permission'],
-                    'delete' => ['url' => 'delete-permission'],
-                ]
-            ]),
+            [
+                'class' => 'kordar\yak\libs\YakActionColumn',
+                'buttonUrls' => [
+                    'view' => ['url' => 'view-permission', 'attributes' => ['id' => 'name']],
+                    'update' => ['url' => 'update-permission', 'attributes' => ['id' => 'name']],
+                    'delete' => ['url' => 'delete-permission', 'attributes' => ['id' => 'name']],
+                ],
+            ]
 
         ],
     ]); ?>

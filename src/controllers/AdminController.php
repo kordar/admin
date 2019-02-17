@@ -96,10 +96,10 @@ class AdminController extends YakController
         if (Yii::$app->request->isPost) {
 
             if ($model->load(Yii::$app->request->post(), '') && $model->setChildrenToUser($id)) {
-                Yii::$app->session->setFlash('success', Html::tag('b', '[' . $name . ']') . Yii::t('ace.rbac', 'Permission assignment is successful'));
+                Yii::$app->session->setFlash('success', Html::tag('b', '[' . $name . ']') . Yii::t('yak', 'Permission assignment is successful'));
                 return $this->redirect(['index']);
             }
-            Yii::$app->session->setFlash('warning', Yii::t('ace.rbac', 'Permission assignment failed'));
+            Yii::$app->session->setFlash('warning', Yii::t('yak', 'Permission assignment failed'));
         }
 
         return $this->renderTpl('assign', [
@@ -118,7 +118,7 @@ class AdminController extends YakController
         $model = $this->findModel($id);
 
         if ($model->type == Admin::TYPE_SUPER) {
-            throw new UserException(Yii::t('ace', 'superuser does not allow deletion'));
+            throw new UserException(Yii::t('yak', 'superuser does not allow deletion'));
         }
 
         $model->delete();

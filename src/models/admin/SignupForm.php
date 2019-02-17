@@ -26,21 +26,21 @@ class SignupForm extends Model
             [['username', 'email', 'name'], 'string', 'min' => 2, 'max' => 255],
             [['password', 'confirmPassword'], 'string', 'min' => 6],
             ['email', 'email'],
-            ['confirmPassword', 'compare', 'compareAttribute'=>'password', 'message'=> Yii::t('ace', 'The password is inconsistent twice')],
+            ['confirmPassword', 'compare', 'compareAttribute'=>'password', 'message'=> Yii::t('yak', 'The password is inconsistent twice')],
 
-            ['username', 'unique', 'targetClass' => User::className(), 'message' => Yii::t('ace', 'This user is already in use')],
-            ['email', 'unique', 'targetClass' => User::className(), 'message' => Yii::t('ace', 'This email is already registered')],
+            ['username', 'unique', 'targetClass' => User::className(), 'message' => Yii::t('yak', 'This user is already in use')],
+            ['email', 'unique', 'targetClass' => User::className(), 'message' => Yii::t('yak', 'This email is already registered')],
         ];
     }
 
     public function attributeLabels()
     {
         return [
-            'name' => Yii::t('ace.admin', 'Name'),
-            'username' => Yii::t('ace.admin', 'Username'),
-            'email' => Yii::t('ace.admin', 'Email'),
-            'password' => Yii::t('ace.admin', 'Password'),
-            'confirmPassword' => Yii::t('ace.admin', 'Confirm Password')
+            'name' => Yii::t('yak', 'Name'),
+            'username' => Yii::t('yak', 'Username'),
+            'email' => Yii::t('yak', 'Email'),
+            'password' => Yii::t('yak', 'Password'),
+            'confirmPassword' => Yii::t('yak', 'Confirm Password')
         ];
     }
 

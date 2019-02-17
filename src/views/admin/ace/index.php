@@ -2,26 +2,23 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use kordar\ace\web\helper\GridViewHelper;
+use kordar\yak\helpers\GridViewHelper;
 
 /* @var $this yii\web\View */
-/* @var $searchModel kordar\ace\models\admin\AdminSearch */
+/* @var $searchModel kordar\yak\models\admin\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('ace.admin', 'Admins');
+$this->title = Yii::t('yak', 'Admins');
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'icon' => 'fa-users'];
+
+$this->params['small-title'] = Yii::t('yak', 'Edit') . ' &amp; ' . Yii::t('yak', 'Assign');
 
 ?>
 
 <div class="admin-index">
 
-    <?= \kordar\yak\widgets\header\Header::widget(['info' => [
-        'title' => $this->title,
-        'small' => Yii::t('ace.admin', 'Edit') . ' &amp; ' . Yii::t('ace.admin', 'Assign')
-    ]]) ?>
-
     <p>
-        <?= Html::a('<i class="ace-icon fa fa-plus-circle bigger-110"></i> ' . Yii::t('ace.admin', 'Create Admin'), ['create'], ['class' => 'btn btn-success btn-sm']) ?>
+        <?= \kordar\yak\helpers\YakHelper::renderLinker(\Yii::t('yak', 'Create Admin'), ['create'], ['class' => 'btn btn-success btn-sm'], 'fa-plus-circle') ?>
     </p>
 
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -45,31 +42,23 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'icon' => 'fa-users']
             'email:email',
             [
                 'attribute' => 'status',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return Html::tag('i', $model->status_name, ['class'=>'text-info']);
-                },
-                'filter' => $searchModel::statusList()
+                'format' => ['selected', $searchModel::statusList()],
             ],
             [
                 'attribute' => 'type',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return Html::tag('i', $model->type_name, ['class'=>'text-warning']);
-                },
-                'filter' => $searchModel::typeList()
+                'format' => ['selected', $searchModel::typeList()],
             ],
             // 'created_at',
             // 'updated_at',
-            GridViewHelper::actionColumn([
-                'title' => '操作',
-                'template' => ['view', 'update', 'assign'],
-                'item' => [
-                    'view' => ['url' => 'view'],
-                    'update' => ['url' => 'update'],
-                    'assign' => ['url' => 'assign', 'attribute' => ['name']]
+            [
+                'class' => 'kordar\yak\libs\YakActionColumn',
+                'template' => '{view} / {update} / {delete} / {assign}',
+                'buttons' => [
+                        'assign' => function ($url, $model, $key) {
+                            return Html::a(\Yii::t('yak', 'Assign'), ['assign', 'id' => $model->id, 'name' => $model->name]);
+                        }
                 ]
-            ]),
+            ]
 
         ],
     ]); ?>

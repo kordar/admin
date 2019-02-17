@@ -39,7 +39,7 @@ class _LTE extends AbstractSidebar
             $sideBarTree->sideBarHtml .= $sideBarTree->createNode($item, $sideBarTree->callHasChildren());
         }
 
-        $view->registerJs('$(\'#sidebar li.active\').parents(\'li\').addClass(\'active open\')');
+        $view->registerJs('$(\'.sidebar li.active\').parents(\'li\').addClass(\'active open\');$(\'.sidebar li.active\').parent(\'ul\').addClass(\'menu-open\')');
 
         return $sideBarTree->sideBarHtml;
 

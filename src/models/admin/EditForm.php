@@ -28,10 +28,10 @@ class EditForm extends User
     public function attributeLabels()
     {
         return [
-            'name' => Yii::t('ace.admin', 'Name'),
-            'username' => Yii::t('ace.admin', 'Username'),
-            'email' => Yii::t('ace.admin', 'Email'),
-            'password' => Yii::t('ace.admin', 'Password'),
+            'name' => Yii::t('yak', 'Name'),
+            'username' => Yii::t('yak', 'Username'),
+            'email' => Yii::t('yak', 'Email'),
+            'password' => Yii::t('yak', 'Password'),
         ];
     }
 
