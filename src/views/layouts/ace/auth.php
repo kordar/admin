@@ -8,7 +8,7 @@ use yii\helpers\ArrayHelper;
 
 \kordar\yak\assets\ace\AceAsset::register($this);
 
-$config = ConfigHelper::config('auth-layout');
+$config = ConfigHelper::config('basic');
 
 ?>
 <?php $this->beginPage() ?>

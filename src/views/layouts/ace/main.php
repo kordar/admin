@@ -9,6 +9,8 @@ use yii\helpers\ArrayHelper;
 
 $assetObj = AppAsset::register($this);
 
+$config = \kordar\yak\helpers\ConfigHelper::config('basic');
+
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -83,22 +85,25 @@ $assetObj = AppAsset::register($this);
             <div class="footer-inner">
                 <div class="footer-content">
                             <span class="bigger-120">
-                                <span class="blue bolder">Ace</span>
-                                Application &copy; 2013-2014
+                                <span class="blue bolder">
+                                    <?= ArrayHelper::getValue($config, 'company', '@company')?>
+                                </span>
+                                 |
+                                <?= ArrayHelper::getValue($config, 'title', '@title')?> &copy; 2013-<?= date('Y')?>
                             </span>
 
                     &nbsp; &nbsp;
                     <span class="action-buttons">
                                 <a href="#">
-                                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                                    <i class="ace-icon fa fa-wechat light-blue bigger-125"></i>
+                                </a>
+
+                                <a href="#" data-tips="ASDFDAS">
+                                    <i class="ace-icon fa fa-qq text-primary bigger-125"></i>
                                 </a>
 
                                 <a href="#">
-                                    <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-                                </a>
-
-                                <a href="#">
-                                    <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                                    <i class="ace-icon fa fa-rss-square orange bigger-125"></i>
                                 </a>
                             </span>
                 </div>

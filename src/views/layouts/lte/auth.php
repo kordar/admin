@@ -8,7 +8,7 @@ use yii\helpers\ArrayHelper;
 
 \kordar\yak\assets\lte\AuthAsset::register($this);
 
-$config = ConfigHelper::config('auth-layout');
+$config = ConfigHelper::config('basic');
 
 $js = <<<JS
     $('input').iCheck({

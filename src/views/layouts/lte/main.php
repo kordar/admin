@@ -10,7 +10,7 @@ use kordar\yak\helpers\SidebarHelper;
 
 \kordar\yak\assets\lte\AppAsset::register($this);
 
-$config = ConfigHelper::config('auth-layout');
+$config = ConfigHelper::config('basic');
 
 ?>
 <?php $this->beginPage() ?>
@@ -74,10 +74,30 @@ $config = ConfigHelper::config('auth-layout');
 
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.8
+
+            <span class="action-buttons">
+                <a href="#">
+                    <i class="ace-icon fa fa-wechat light-blue bigger-125"></i>
+                </a>
+
+
+
+                <a href="#" data-tips="ASDFDAS">
+                    <i class="ace-icon fa fa-qq text-primary bigger-125"></i>
+                </a>
+
+
+
+                <a href="#">
+                    <i class="ace-icon fa fa-rss-square orange bigger-125"></i>
+                </a>
+            </span>
+
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-        reserved.
+
+        <strong>Copyright &copy; 2013-<?= date('Y')?> · <?= ArrayHelper::getValue($config, 'company', '@company')?> · </strong>
+        <?= ArrayHelper::getValue($config, 'title', '@title')?>
+
     </footer>
 
     <!-- Control Sidebar -->
