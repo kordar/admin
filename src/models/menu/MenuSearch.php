@@ -5,12 +5,11 @@ namespace kordar\yak\models\menu;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use kordar\yak\models\menu\MenuView;
 
 /**
  * MenuSearch represents the model behind the search form about `kordar\ace\models\menu\MenuView`.
  */
-class MenuSearch extends MenuView
+class MenuSearch extends Menu
 {
     /**
      * @inheritdoc
@@ -19,7 +18,7 @@ class MenuSearch extends MenuView
     {
         return [
             [['id', 'parent_id', 'active', 'sort', 'status', 'hidden', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'href', 'language', 'icon', 'parent_title', 'hidden_name'], 'safe'],
+            [['title', 'href', 'language', 'hidden_name'], 'safe'],
         ];
     }
 
@@ -42,7 +41,7 @@ class MenuSearch extends MenuView
     public function search($params)
     {
         $extenHidden = "(CASE `hidden` WHEN 0 THEN '" . Yii::t('yak', 'No') . "' WHEN 1 THEN '" . Yii::t('yak', 'Yes') . "' END)";
-        $query = MenuView::find()->select('*')->addSelect([$extenHidden . ' AS hidden_name']);
+        $query = Menu::find()->select('*')->addSelect([$extenHidden . ' AS hidden_name']);
 
         // add conditions that should always apply here
 
@@ -73,8 +72,7 @@ class MenuSearch extends MenuView
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'href', $this->href])
             ->andFilterWhere(['like', 'language', $this->language])
-            ->andFilterWhere(['like', 'icon', $this->icon])
-            ->andFilterWhere(['like', 'parent_title', $this->parent_title]);
+            ->andFilterWhere(['like', 'icon', $this->icon]);
 
         return $dataProvider;
     }

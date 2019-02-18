@@ -29,15 +29,6 @@ class m170108_092551_menu extends Migration
             'updated_at' => $this->integer()->notNull(),
 
         ], $tableOptions);
-
-        try {
-            $this->db->createCommand('CREATE VIEW :view AS SELECT `menu1`.*, `menu2`.`title` AS `parent_title` FROM :table menu1 LEFT JOIN :table menu2 ON `menu2`.`id`=`menu1`.`parent_id`', [
-                ':view' => '{{%menu_view}}', ':table' => self::TABLE
-            ])->execute();
-        } catch (\Exception $e) {
-            echo '视图 menu_view 创建失败！' . PHP_EOL;
-        }
-
     }
 
     public function down()

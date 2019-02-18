@@ -14,6 +14,10 @@ $this->title = \Yii::t('yak', 'Menus');
 $this->params['breadcrumbs'][] = ['label'=>$this->title, 'icon'=>'fa-list'];
 
 $this->params['small-title'] = Yii::t('yak', 'Create') . ' &amp; ' .  Yii::t('yak', 'Edit');
+
+$menus = SidebarHelper::getSidebarDropDownList('无');
+$yn = YakHelper::dropDownListYOrN();
+
 ?>
 <div class="sidebar-index">
 
@@ -33,17 +37,17 @@ $this->params['small-title'] = Yii::t('yak', 'Create') . ' &amp; ' .  Yii::t('ya
             'href',
             [
                 'attribute' => 'parent_id',
-                'format' => ['selected', SidebarHelper::getSidebarDropDownList('无')],
-                'filter' => SidebarHelper::getSidebarDropDownList('无')
+                'format' => ['selected', $menus],
+                'filter' => $menus
             ],
             [
                 'attribute' => 'hidden',
-                'format' => ['selected', YakHelper::dropDownListYOrN()],
-                'filter' => YakHelper::dropDownListYOrN(),
+                'format' => ['selected', $yn],
+                'filter' => $yn
             ],
             // 'hidden',
             // 'language',
-            // 'icon',
+            'icon:icon',
             // 'active',
             // 'sort',
             // 'status',

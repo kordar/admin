@@ -14,35 +14,36 @@ $this->params['small-title'] = Yii::t('yak', 'Grid View');
 
 $this->params['link'] = 'yak/admin/index';
 ?>
-<div class="admin-view">
+<div class="box">
 
-    <p>
-        <?= Html::a(Yii::t('yak', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('yak', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
+    <div class="box-header">
+
+        <?= \kordar\yak\helpers\YakHelper::renderLinker(Yii::t('yak', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm'], 'fa-edit') ?>
+        <?= \kordar\yak\helpers\YakHelper::renderLinker(Yii::t('yak', 'Delete'), ['delete', 'id' => $model->id], ['class' => 'btn btn-danger btn-sm', 'data' => [
+            'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
+            'method' => 'post']
+        ], 'fa-trash') ?>
+
+    </div>
+
+    <div class="box-body">
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'id',
+                'name',
+                'avatar',
+                'username',
+                'auth_key',
+                'password_hash',
+                'password_reset_token',
+                'email:email',
+                'status_name',
+                'type_name',
+                'created_at:datetime',
+                'updated_at:datetime',
             ],
         ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'name',
-            'avatar',
-            'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            'email:email',
-            'status_name',
-            'type_name',
-            'created_at:datetime',
-            'updated_at:datetime',
-        ],
-    ]) ?>
+    </div>
 
 </div>

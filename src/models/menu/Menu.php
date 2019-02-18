@@ -79,6 +79,7 @@ class Menu extends Yak
             'hidden' => \Yii::t('yak', 'Hidden'),
             'created_at' => \Yii::t('yak', 'Created At'),
             'updated_at' => \Yii::t('yak', 'Updated At'),
+            'parent_title' => \Yii::t('yak', 'Parent Title'),
         ];
     }
 

@@ -31,7 +31,12 @@ $this->params['link'] = 'yak/menu/index';
             'id',
             'title',
             'href',
-            'parent_title',
+            [
+                'attribute' => 'parent_id',
+                'value' => function ($model) {
+                    return \kordar\yak\models\menu\Menu::find()->select('title')->where(['id' => $model->parent_id])->scalar();
+                }
+            ],
             'language',
             //DetailViewHelper::fontAwesomeIcon($model->icon, 'icon'),
             'icon:icon',

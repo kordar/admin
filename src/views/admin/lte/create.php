@@ -13,9 +13,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $this->params['link'] = 'yak/admin/index';
 ?>
-<div class="admin-create">
+<div class="box">
 
-    <div class="admin-form well">
+    <div class="box-body">
 
         <?php $form = ActiveForm::begin(); ?>
 
@@ -26,7 +26,7 @@ $this->params['link'] = 'yak/admin/index';
         <?= $form->field($model, 'confirmPassword')->passwordInput() ?>
 
         <div class="form-group">
-            <?= Html::submitButton(Yii::t('yak', 'Create'), ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton('<i class="fa fa-plus-circle bigger-110"></i> ' . Yii::t('yak', 'Create'), ['class' => 'btn btn-success']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

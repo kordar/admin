@@ -10,24 +10,21 @@ use kordar\yak\helpers\GridViewHelper;
 
 $this->title = Yii::t('yak', 'Admins');
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'icon' => 'fa-users'];
-$this->params['small-title'] = \Yii::t('yak', 'Edit') . ' &amp; ' . \Yii::t('yak', 'Assign');
+
+$this->params['small-title'] = Yii::t('yak', 'Edit') . ' &amp; ' . Yii::t('yak', 'Assign');
 
 ?>
 
 <div class="box">
 
-    <div class="box-header with-border">
-        <?= Html::a('<i class="ace-icon fa fa-plus-circle bigger-110"></i> ' . Yii::t('yak', 'Create Admin'), ['create'], ['class' => 'btn btn-success btn-sm']) ?>
-
-    </div>
-
     <div class="box-header">
-        <?= $this->render('_search', ['model' => $searchModel]); ?>
+        <?= \kordar\yak\helpers\YakHelper::renderLinker(\Yii::t('yak', 'Create Admin'), ['create'], ['class' => 'btn btn-success btn-sm'], 'fa-plus-circle') ?>
     </div>
-
-
 
     <div class="box-body">
+
+        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+        <div class="space-4"></div>
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             // 'filterModel' => $searchModel,
@@ -44,36 +41,26 @@ $this->params['small-title'] = \Yii::t('yak', 'Edit') . ' &amp; ' . \Yii::t('yak
                 'email:email',
                 [
                     'attribute' => 'status',
-                    'format' => 'raw',
-                    'value' => function ($model) {
-                        return Html::tag('i', $model->status_name, ['class'=>'text-info']);
-                    },
-                    'filter' => $searchModel::statusList()
+                    'format' => ['selected', $searchModel::statusList()],
                 ],
                 [
                     'attribute' => 'type',
-                    'format' => 'raw',
-                    'value' => function ($model) {
-                        return Html::tag('i', $model->type_name, ['class'=>'text-warning']);
-                    },
-                    'filter' => $searchModel::typeList()
+                    'format' => ['selected', $searchModel::typeList()],
                 ],
                 // 'created_at',
                 // 'updated_at',
-                GridViewHelper::actionColumn([
-                    'title' => '操作',
-                    'template' => ['view', 'update', 'assign'],
-                    'item' => [
-                        'view' => ['url' => 'view'],
-                        'update' => ['url' => 'update'],
-                        'assign' => ['url' => 'assign', 'attribute' => ['name']]
+                [
+                    'class' => 'kordar\yak\libs\YakActionColumn',
+                    'template' => '{view} / {update} / {delete} / {assign}',
+                    'buttons' => [
+                        'assign' => function ($url, $model, $key) {
+                            return Html::a(\Yii::t('yak', 'Assign'), ['assign', 'id' => $model->id, 'name' => $model->name]);
+                        }
                     ]
-                ]),
+                ]
 
             ],
         ]); ?>
     </div>
-
-
 
 </div>

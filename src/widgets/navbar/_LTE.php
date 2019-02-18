@@ -8,9 +8,10 @@ class _LTE extends AbstractNavbar
 {
     public function beforeRender()
     {
+        $title = ArrayHelper::getValue(\Yii::$app->params['yak']['basic'], 'title', 'Admin LTE');
         return Html::a(
-            '<span class="logo-mini"><b>A</b>LT</span><span class="logo-lg"><b>Admin</b>LTE</span>',
-            '#', ['class' => 'logo']
+            '<span class="logo-mini">' . mb_substr($title, 0, 3) . '</span><span class="logo-lg"><b>' . $title . '</b></span>',
+            \Yii::$app->homeUrl, ['class' => 'logo']
         );
     }
 
@@ -120,6 +121,12 @@ class _LTE extends AbstractNavbar
 
         $a = Html::a(Html::img($this->user->getAvatar($defaultAvatar), ['class' => 'user-image']) . '<span class="hidden-xs">' . $this->user->getName() . '</span>', '#', ['class' => 'dropdown-toggle', 'data-toggle' => 'dropdown']);
         $items = ArrayHelper::getValue($this->config, 'personal', []);
+
+        $items[] = ['label' => '注销', 'icon' => 'fa-power-off', 'href' => ['/yak/auth/logout'], 'option' =>  [
+            'data' => [
+                'confirm' => '确定注销？', 'method' => 'post',
+            ],
+        ]];
 
         $ul = Html::ul($items, ['item' => function ($item, $index) {
 

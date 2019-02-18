@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use kordar\yak\helpers\GridViewHelper;
 use kordar\yak\helpers\SidebarHelper;
+use kordar\yak\helpers\YakHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel \kordar\yak\models\menu\MenuSearch */
@@ -14,13 +15,16 @@ $this->params['breadcrumbs'][] = ['label'=>$this->title, 'icon'=>'fa-list'];
 
 $this->params['small-title'] = Yii::t('yak', 'Create') . ' &amp; ' .  Yii::t('yak', 'Edit');
 
+$menus = SidebarHelper::getSidebarDropDownList('无');
+$yn = YakHelper::dropDownListYOrN();
+
 ?>
 <div class="box">
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <div class="box-header">
-        <?= Html::a(Html::tag('i', '', ['class'=>'fa fa-plus']) . ' ' . \Yii::t('yak', 'Create Menu'), ['create'], ['class' => 'btn btn-success btn-sm']) ?>
+        <?= \kordar\yak\helpers\YakHelper::renderLinker(\Yii::t('yak', 'Create Menu'), ['create'], ['class' => 'btn btn-success btn-sm'], 'fa-plus-circle') ?>
     </div>
 
     <div class="box-body">
@@ -35,33 +39,26 @@ $this->params['small-title'] = Yii::t('yak', 'Create') . ' &amp; ' .  Yii::t('ya
                 'href',
                 [
                     'attribute' => 'parent_id',
-                    'format' => 'raw',
-                    'value' => function ($model) {
-                        return Html::tag('i', $model->parent_title, ['class'=>'text-info']);
-                    },
-                    'filter' => SidebarHelper::getSidebarDropDownList('无')
+                    'format' => ['selected', $menus],
+                    'filter' => $menus
                 ],
                 [
                     'attribute' => 'hidden',
-                    'format' => 'raw',
-                    'value' => function ($model) {
-                        return Html::tag('i', $model->hidden_name, ['class'=>'text-warning']);
-                    },
-                    'filter' => GridViewHelper::dropDownListYesOrNo(),
+                    'format' => ['selected', $yn],
+                    'filter' => $yn
                 ],
                 // 'hidden',
                 // 'language',
-                // 'icon',
+                'icon:icon',
                 // 'active',
                 // 'sort',
                 // 'status',
                 // 'created_at',
                 // 'updated_at',
 
-                ['class' => 'yii\grid\ActionColumn'],
+                ['class' => 'kordar\yak\libs\YakActionColumn'],
             ],
         ]); ?>
     </div>
-
 
 </div>

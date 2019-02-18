@@ -22,28 +22,17 @@ use kordar\yak\models\admin\User AS Admin;
         ]
     ]); ?>
 
-    <div class="row">
-        <div class="col-sm-12">
-            <?= \kordar\yak\widgets\search\DropDownSearch::widget(['model' => $model, 'items' => ['id', 'name', 'username', 'email']])?>
+    <?= \kordar\yak\widgets\search\DropDownSearch::widget(['model' => $model, 'items' => ['id', 'name', 'username', 'email']])?>
 
-            <?= \kordar\yak\widgets\search\DropDownDateSearch::widget(['model' => $model, 'items' => ['created_at']])?>
+    <?= \kordar\yak\widgets\search\DropDownDateSearch::widget(['model' => $model, 'items' => ['created_at']])?>
 
-        </div>
+    <?= $form->field($model, 'status', ['template'=>"{input}"])->dropDownList(Admin::statusList(), ['prompt'=>'管理员状态']) ?>
 
-        <div class="col-sm-12">
-            <div class="space-4"></div>
-            <?= $form->field($model, 'status', ['template'=>"{input}"])->dropDownList(Admin::statusList(), ['prompt'=>'管理员状态']) ?>
+    <?= $form->field($model, 'type', ['template'=>"{input}"])->dropDownList(Admin::typeList(), ['prompt'=>'管理员类型']) ?>
 
-            <?= $form->field($model, 'type', ['template'=>"{input}"])->dropDownList(Admin::typeList(), ['prompt'=>'管理员类型']) ?>
-
-            <div class="form-group">
-                <?= Html::submitButton('<i class="ace-icon fa fa-search bigger-110"></i> ' . Yii::t('yak', 'Search'), ['class' => 'btn btn-primary btn-sm']) ?>
-            </div>
-        </div>
-
+    <div class="form-group">
+        <?= Html::submitButton('<i class="ace-icon fa fa-search bigger-110"></i> ' . Yii::t('yak', 'Search'), ['class' => 'btn btn-primary btn-sm']) ?>
     </div>
-
-
 
     <?php ActiveForm::end(); ?>
 

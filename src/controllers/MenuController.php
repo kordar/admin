@@ -2,6 +2,7 @@
 
 namespace kordar\yak\controllers;
 
+use kordar\yak\helpers\SidebarHelper;
 use Yii;
 use kordar\yak\models\menu\Menu;
 use kordar\yak\models\menu\MenuView;
@@ -115,7 +116,7 @@ class MenuController extends YakController
 
     protected function findViewModel($id)
     {
-        if (($model = MenuView::findOne($id)) !== null) {
+        if (($model = Menu::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

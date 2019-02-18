@@ -11,7 +11,7 @@ $this->params['small-title'] = Yii::t('yak', 'Create');
 
 $this->params['link'] = 'yak/menu/index';
 ?>
-<div class="sidebar-create">
+<div class="box">
 
     <?= $this->render('_form', [
         'model' => $model,

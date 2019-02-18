@@ -10,11 +10,11 @@ $this->params['breadcrumbs'][] = ['label' => \Yii::t('yak', 'Menus'), 'url' => [
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id], 'icon'=>'fa-eye'];
 $this->params['breadcrumbs'][] = ['label' => \Yii::t('yak', 'Update'), 'icon'=>'fa-edit'];
 
-$this->params['small-title'] = Yii::t('yak', 'Grid Update');
+$this->params['small-title'] = Yii::t('yak', 'Update');
 
 $this->params['link'] = 'yak/menu/index';
 ?>
-<div class="sidebar-update">
+<div class="box">
 
     <?= $this->render('_form', [
         'model' => $model,

@@ -32,7 +32,8 @@ class _ACE extends AbstractNavbar
     protected function title()
     {
         // TODO: Implement title() method.
-        return Html::tag('div', Html::a('<small><i class="fa fa-leaf"></i> Ace Admin</small>', '#', ['class' => 'navbar-brand']), ['class' => 'navbar-header pull-left']);
+        $title = ArrayHelper::getValue(\Yii::$app->params['yak']['basic'], 'title', 'Ace Admin');
+        return Html::tag('div', Html::a('<small><i class="fa fa-leaf"></i> ' . $title . '</small>', \Yii::$app->homeUrl, ['class' => 'navbar-brand']), ['class' => 'navbar-header pull-left']);
     }
 
     /**

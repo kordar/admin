@@ -1,8 +1,7 @@
 <?php
 
-use yii\helpers\Html;
 use yii\widgets\DetailView;
-use kordar\yak\helpers\DetailViewHelper;
+use kordar\yak\helpers\YakHelper;
 
 /* @var $this yii\web\View */
 /* @var $model kordar\yak\models\menu\Menu */
@@ -19,14 +18,11 @@ $this->params['link'] = 'yak/menu/index';
 <div class="box">
 
     <div class="box-header">
-        <?= Html::a(\Yii::t('yak', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(\Yii::t('yak', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => \Yii::t('yii', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?= YakHelper::renderLinker(Yii::t('yak', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm'], 'fa-edit') ?>
+        <?= YakHelper::renderLinker(Yii::t('yak', 'Delete'), ['delete', 'id' => $model->id], ['class' => 'btn btn-danger btn-sm', 'data' => [
+            'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
+            'method' => 'post']
+        ], 'fa-trash') ?>
     </div>
 
     <div class="box-body">
@@ -36,12 +32,24 @@ $this->params['link'] = 'yak/menu/index';
                 'id',
                 'title',
                 'href',
-                'parent_title',
+                [
+                    'attribute' => 'parent_id',
+                    'value' => function ($model) {
+                        return \kordar\yak\models\menu\Menu::find()->select('title')->where(['id' => $model->parent_id])->scalar();
+                    }
+                ],
                 'language',
-                DetailViewHelper::fontAwesomeIcon($model->icon, 'icon'),
-                DetailViewHelper::active($model->active, 'active'),
+                //DetailViewHelper::fontAwesomeIcon($model->icon, 'icon'),
+                'icon:icon',
+                [
+                    'attribute' => 'active',
+                    'format' => ['selected', YakHelper::dropDownListYOrN()]
+                ],
                 'sort',
-                DetailViewHelper::status($model->status, 'status'),
+                [
+                    'attribute' => 'status',
+                    'format' => ['selected', YakHelper::dropDownListActive()]
+                ],
                 'created_at:datetime',
                 'updated_at:datetime',
             ],

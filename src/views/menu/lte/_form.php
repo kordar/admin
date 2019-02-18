@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kordar\yak\helpers\SidebarHelper;
-use kordar\yak\helpers\ActiveFormHelper;
 use kordar\yak\helpers\YakHelper;
 
 /* @var $this yii\web\View */
@@ -11,7 +10,7 @@ use kordar\yak\helpers\YakHelper;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="well">
+<div class="box-body">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -23,14 +22,14 @@ use kordar\yak\helpers\YakHelper;
 
     <?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'active')->radioList(YakHelper::dropDownListYOrN(), ActiveFormHelper::aceRadioListOptions()) ?>
+    <?= $form->field($model, 'active')->radioList(YakHelper::dropDownListYOrN(), YakHelper::aceRadioListOptions()) ?>
 
-    <?= $form->field($model, 'hidden')->radioList(YakHelper::dropDownListYOrN(), ActiveFormHelper::aceRadioListOptions()) ?>
+    <?= $form->field($model, 'hidden')->radioList(YakHelper::dropDownListYOrN(), YakHelper::aceRadioListOptions()) ?>
 
     <?= $form->field($model, 'sort')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? \Yii::t('yak', 'Create') : \Yii::t('yak', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton('<i class="fa fa-save bigger-110"></i> ' . Yii::t('yak', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

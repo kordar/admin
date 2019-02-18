@@ -11,13 +11,13 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('yak', 'Admins'), 'url' => [
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id], 'icon' => 'fa-eye'];
 $this->params['breadcrumbs'][] = Yii::t('yak', 'Update');
 
-$this->params['small-title'] = Yii::t('yak', 'Grid Update');
+$this->params['small-title'] = Yii::t('yak', 'Update');
 
 $this->params['link'] = 'yak/admin/index';
 ?>
-<div class="admin-update">
+<div class="box">
 
-    <div class="admin-form well">
+    <div class="box-body">
 
         <?php $form = ActiveForm::begin(); ?>
 
@@ -27,7 +27,7 @@ $this->params['link'] = 'yak/admin/index';
         <?= $form->field($model, 'password')->textInput() ?>
 
         <div class="form-group">
-            <?= Html::submitButton(Yii::t('yak', 'Update'), ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('<i class="fa fa-edit bigger-110"></i> ' . Yii::t('yak', 'Update'), ['class' => 'btn btn-primary']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>
