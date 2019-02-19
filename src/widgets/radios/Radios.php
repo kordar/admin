@@ -7,15 +7,15 @@ use yii\helpers\ArrayHelper;
 
 class Radios extends InputWidget
 {
-    public function run()
+    public static function options()
     {
         $config = YakConfigHelper::widgetConfig('radios');
         $classname = ArrayHelper::getValue($config, 'class', 'kordar\yak\widgets\radios\_' . strtoupper($GLOBALS['yak_sign']));
 
         /**
-         * @var $navigation AbstractRadios
+         * @var $obj AbstractRadios
          */
-        $navigation = \Yii::createObject(['class' => $classname, 'config' => $config]);
-        return $navigation->beforeRender() . $navigation->render($this->view) . $navigation->afterRender();
+        $obj = \Yii::createObject(['class' => $classname, 'config' => $config]);
+        return $obj->render();
     }
 }

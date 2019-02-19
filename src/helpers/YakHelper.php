@@ -1,6 +1,7 @@
 <?php
 namespace kordar\yak\helpers;
 
+use kordar\yak\widgets\radios\Radios;
 use yii\helpers\Html;
 
 /**
@@ -50,15 +51,7 @@ class YakHelper
 
     public static function radioListOptions()
     {
-        return [
-            'class'=>'radio form-control',
-            'item' => function ($index, $label, $name, $checked, $value) {
-                return Html::radio($name, $checked, array_merge(['class' => 'ace'], [
-                    'value' => $value,
-                    'label' => Html::tag('span', Html::encode(' ' . $label), ['class'=>'lbl'])
-                ]));
-            }
-        ];
+        return Radios::options();
     }
 
     public static function checkboxListOptions()

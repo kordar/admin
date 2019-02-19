@@ -25,7 +25,7 @@ $assetObj = AppAsset::register($this);
     <body class="no-skin">
     <?php $this->beginBody() ?>
 
-    <?= \kordar\yak\widgets\navbar\Radios::widget();?>
+    <?= \kordar\yak\widgets\navbar\Navbar::widget();?>
 
     <div class="main-container ace-save-state" id="main-container">
 

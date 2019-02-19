@@ -21,8 +21,8 @@ use kordar\yak\helpers\YakHelper;
     <?= $form->field($model, 'parent_id')->dropDownList(SidebarHelper::getSidebarDropDownList(\Yii::t('yak', 'Please choose superior menu'))) ?>
 
     <?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'active')->widget('kordar\yak\widgets\radios\Radios', YakHelper::dropDownListYOrN())?>
+    
+    <?= $form->field($model, 'active')->radioList(YakHelper::dropDownListYOrN(), YakHelper::radioListOptions()) ?>
 
     <?= $form->field($model, 'hidden')->radioList(YakHelper::dropDownListYOrN(), YakHelper::radioListOptions()) ?>
 

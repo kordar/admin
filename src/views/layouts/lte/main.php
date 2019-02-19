@@ -30,7 +30,7 @@ use kordar\yak\helpers\YakConfigHelper;
 
     <header class="main-header">
         <!-- Logo -->
-        <?= \kordar\yak\widgets\navbar\Radios::widget() ?>
+        <?= \kordar\yak\widgets\navbar\Navbar::widget() ?>
     </header>
 
     <!-- =============================================== -->
