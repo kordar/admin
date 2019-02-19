@@ -63,12 +63,12 @@ $assetObj = AppAsset::register($this);
                     <div class="row">
                         <div class="col-xs-12">
                             <!-- PAGE CONTENT BEGINS -->
-                            <div class="space-4"></div>
-                            <?= \kordar\yak\widgets\alert\Alert::widget() ?><!-- /.breadcrumb -->
 
                             <?= \kordar\yak\widgets\header\Header::widget(['info' => [
                                 'title' => $this->title, 'small' => ArrayHelper::getValue($this->params, 'small-title', '')
                             ]]) ?>
+
+                            <?= \kordar\yak\widgets\alert\Alert::widget() ?><!-- /.breadcrumb -->
 
                             <?= $content ?>
                             <!-- PAGE CONTENT ENDS -->

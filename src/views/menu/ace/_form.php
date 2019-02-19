@@ -18,13 +18,17 @@ use kordar\yak\helpers\YakHelper;
 
     <?= $form->field($model, 'href')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'parent_id')->dropDownList(SidebarHelper::getSidebarDropDownList(\Yii::t('yak', 'Please choose superior menu'))) ?>
+    <?php  // $form->field($model, 'parent_id')->dropDownList(SidebarHelper::getSidebarDropDownList(\Yii::t('yak', 'Please choose superior menu'))) ?>
+
+    <?= $form->field($model, 'parent_id')->widget('kordar\yak\widgets\chosen\Chosen', [
+            'items' => SidebarHelper::getSidebarDropDownList(\Yii::t('yak', 'Please choose superior menu'))
+    ])?>
 
     <?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
-    
-    <?= $form->field($model, 'active')->radioList(YakHelper::dropDownListYOrN(), YakHelper::radioListOptions()) ?>
 
-    <?= $form->field($model, 'hidden')->radioList(YakHelper::dropDownListYOrN(), YakHelper::radioListOptions()) ?>
+    <?= $form->field($model, 'active')->widget('kordar\yak\widgets\radio\Radio', ['items' => YakHelper::dropDownListYOrN()]) ?>
+
+    <?= $form->field($model, 'hidden')->widget('kordar\yak\widgets\radio\Radio', ['items' => YakHelper::dropDownListYOrN()]) ?>
 
     <?= $form->field($model, 'sort')->textInput() ?>
 

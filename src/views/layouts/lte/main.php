@@ -65,7 +65,10 @@ use kordar\yak\helpers\YakConfigHelper;
         <!-- Main content -->
         <section class="content">
             <div class="row">
-                <div class="col-sm-12"><?= $content ?></div>
+                <div class="col-sm-12">
+                    <?= \kordar\yak\widgets\alert\Alert::widget() ?>
+                    <?= $content ?>
+                </div>
             </div>
         </section>
         <!-- /.content -->

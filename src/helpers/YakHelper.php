@@ -1,7 +1,7 @@
 <?php
 namespace kordar\yak\helpers;
 
-use kordar\yak\widgets\radios\Radios;
+use kordar\yak\widgets\radios\Checkbox;
 use yii\helpers\Html;
 
 /**
@@ -51,7 +51,7 @@ class YakHelper
 
     public static function radioListOptions()
     {
-        return Radios::options();
+        return Checkbox::options();
     }
 
     public static function checkboxListOptions()

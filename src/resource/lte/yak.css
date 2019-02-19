@@ -9,3 +9,7 @@ div.space-8 {
 div.space-12 {
     padding: 12px 0;
 }
+
+.auto-height {
+    height: auto;
+}
