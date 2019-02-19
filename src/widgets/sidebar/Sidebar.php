@@ -1,7 +1,7 @@
 <?php
 namespace kordar\yak\widgets\sidebar;
 
-use kordar\yak\helpers\ConfigHelper;
+use kordar\yak\helpers\YakConfigHelper;
 use yii\bootstrap\Widget;
 use yii\helpers\ArrayHelper;
 
@@ -13,7 +13,7 @@ class Sidebar extends Widget
 
     public function run()
     {
-        $config = ConfigHelper::widgetConfig('sidebar');
+        $config = YakConfigHelper::widgetConfig('sidebar');
         $classname = ArrayHelper::getValue($config, 'class', 'kordar\yak\widgets\sidebar\_' . strtoupper($GLOBALS['yak_sign']));
 
         /**

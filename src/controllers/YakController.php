@@ -2,7 +2,7 @@
 namespace kordar\yak\controllers;
 
 use kordar\yak\behaviors\RbacFilter;
-use kordar\yak\helpers\ConfigHelper;
+use kordar\yak\helpers\YakConfigHelper;
 use kordar\yak\helpers\LoggerHelper;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -20,7 +20,7 @@ class YakController extends Controller
 
     public function init()
     {
-        $this->template = ConfigHelper::config('template', 'ace');
+        $this->template = YakConfigHelper::config('yak.template', 'ace');
         $GLOBALS['yak_sign'] = $this->template;
         $this->layout = '@kordar/yak/views/layouts/' . $this->template . '/main.php';
     }

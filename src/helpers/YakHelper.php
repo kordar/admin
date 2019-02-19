@@ -48,7 +48,7 @@ class YakHelper
         return $params;
     }
 
-    public static function aceRadioListOptions()
+    public static function radioListOptions()
     {
         return [
             'class'=>'radio form-control',
@@ -61,7 +61,7 @@ class YakHelper
         ];
     }
 
-    public static function aceCheckboxListOptions()
+    public static function checkboxListOptions()
     {
         return [
             'item' => function($index, $label, $name, $checked, $value) {

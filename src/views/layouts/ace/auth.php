@@ -3,12 +3,10 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use kordar\yak\helpers\ConfigHelper;
+use kordar\yak\helpers\YakConfigHelper;
 use yii\helpers\ArrayHelper;
 
 \kordar\yak\assets\ace\AceAsset::register($this);
-
-$config = ConfigHelper::config('basic');
 
 ?>
 <?php $this->beginPage() ?>
@@ -34,10 +32,10 @@ $config = ConfigHelper::config('basic');
                         <div class="center">
                             <h1>
                                 <i class="ace-icon fa fa-leaf green"></i>
-                                <span class="red"><?= ArrayHelper::getValue($config, 'title', '@title')?></span>
-                                <span class="white" id="id-text2"><?= ArrayHelper::getValue($config, 'sub-title', '@sub-title')?></span>
+                                <span class="red"><?= YakConfigHelper::config('yak.site.title', '@title')?></span>
+                                <span class="white" id="id-text2"><?= YakConfigHelper::config('yak.site.sub-title', '@sub-title')?></span>
                             </h1>
-                            <h4 class="blue" id="id-company-text">&copy; <?= ArrayHelper::getValue($config, 'company', '@company')?></h4>
+                            <h4 class="blue" id="id-company-text">&copy; <?= YakConfigHelper::config('yak.site.company', '@company')?></h4>
                         </div>
 
                         <div class="space-6"></div>

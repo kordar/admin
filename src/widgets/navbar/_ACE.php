@@ -3,6 +3,7 @@ namespace kordar\yak\widgets\navbar;
 
 use yii\bootstrap\Html;
 use yii\helpers\ArrayHelper;
+use kordar\yak\helpers\YakConfigHelper;
 
 class _ACE extends AbstractNavbar
 {
@@ -32,7 +33,7 @@ class _ACE extends AbstractNavbar
     protected function title()
     {
         // TODO: Implement title() method.
-        $title = ArrayHelper::getValue(\Yii::$app->params['yak']['basic'], 'title', 'Ace Admin');
+        $title = YakConfigHelper::config('yak.site.title', 'Ace Admin');
         return Html::tag('div', Html::a('<small><i class="fa fa-leaf"></i> ' . $title . '</small>', \Yii::$app->homeUrl, ['class' => 'navbar-brand']), ['class' => 'navbar-header pull-left']);
     }
 
@@ -46,7 +47,7 @@ class _ACE extends AbstractNavbar
     protected function personal()
     {
         // TODO: Implement personal() method.
-        $defaultAvatar = ArrayHelper::getValue(\Yii::$app->params['yak'], 'default-avatar', '#');
+        $defaultAvatar = YakConfigHelper::config('yak.default-avatar', '#');
 
         $a = Html::a(Html::img($this->user->getAvatar($defaultAvatar), ['class' => 'nav-user-photo']) . '<span class="user-info"><small>Welcome,</small>' . $this->user->getName() . '</span>
 								<i class="ace-icon fa fa-caret-down"></i>', '#', ['class' => 'dropdown-toggle', 'data-toggle' => 'dropdown']);

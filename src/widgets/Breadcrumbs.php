@@ -13,6 +13,13 @@ use yii\helpers\Html;
 
 class Breadcrumbs extends \yii\widgets\Breadcrumbs
 {
+    public $itemTemplate = "<li>{i} {link}</li>\n";
+    /**
+     * @var string the template used to render each active item in the breadcrumbs. The token `{link}`
+     * will be replaced with the actual HTML link for each active item.
+     */
+    public $activeItemTemplate = "<li class=\"active\">{i} {link}</li>\n";
+
     protected function renderItem($link, $template)
     {
         $encodeLabel = ArrayHelper::remove($link, 'encode', $this->encodeLabels);

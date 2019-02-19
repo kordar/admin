@@ -3,11 +3,11 @@ namespace kordar\yak\helpers;
 
 use yii\helpers\ArrayHelper;
 
-class ConfigHelper
+class YakConfigHelper
 {
     public static function config($field, $default = [])
     {
-        return ArrayHelper::getValue(\Yii::$app->params['yak'], $field, $default);
+        return ArrayHelper::getValue(\Yii::$app->params, $field, $default);
     }
 
     /**
@@ -22,8 +22,8 @@ class ConfigHelper
      */
     public static function widgetConfig($sign, $default = [])
     {
-        if (isset(\Yii::$app->params['yak']['widgets'][$sign])) {
-            return \Yii::$app->params['yak']['widgets'][$sign];
+        if (isset(\Yii::$app->params['yak.widgets.' . $sign])) {
+            return \Yii::$app->params['yak.widgets.' . $sign];
         }
         return $default;
     }

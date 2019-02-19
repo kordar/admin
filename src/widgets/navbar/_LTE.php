@@ -1,6 +1,7 @@
 <?php
 namespace kordar\yak\widgets\navbar;
 
+use kordar\yak\helpers\YakConfigHelper;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
@@ -8,7 +9,7 @@ class _LTE extends AbstractNavbar
 {
     public function beforeRender()
     {
-        $title = ArrayHelper::getValue(\Yii::$app->params['yak']['basic'], 'title', 'Admin LTE');
+        $title = YakConfigHelper::config('yak.title', 'Admin LTE');
         return Html::a(
             '<span class="logo-mini">' . mb_substr($title, 0, 3) . '</span><span class="logo-lg"><b>' . $title . '</b></span>',
             \Yii::$app->homeUrl, ['class' => 'logo']
@@ -117,7 +118,7 @@ class _LTE extends AbstractNavbar
 
     protected function personal()
     {
-        $defaultAvatar = ArrayHelper::getValue(\Yii::$app->params['yak'], 'default-avatar', '#');
+        $defaultAvatar = YakConfigHelper::config('yak.default-avatar', '#');
 
         $a = Html::a(Html::img($this->user->getAvatar($defaultAvatar), ['class' => 'user-image']) . '<span class="hidden-xs">' . $this->user->getName() . '</span>', '#', ['class' => 'dropdown-toggle', 'data-toggle' => 'dropdown']);
         $items = ArrayHelper::getValue($this->config, 'personal', []);

@@ -1,7 +1,7 @@
 <?php
 namespace kordar\yak\widgets\header;
 
-use kordar\yak\helpers\ConfigHelper;
+use kordar\yak\helpers\YakConfigHelper;
 use yii\helpers\ArrayHelper;
 
 class Header extends \yii\bootstrap\Widget
@@ -10,7 +10,7 @@ class Header extends \yii\bootstrap\Widget
 
     public function run()
     {
-        $config = ConfigHelper::widgetConfig('page-header');
+        $config = YakConfigHelper::widgetConfig('page-header');
         $classname = ArrayHelper::getValue($config, 'class', 'kordar\yak\widgets\header\_' . strtoupper($GLOBALS['yak_sign']));
 
         /**

@@ -4,13 +4,11 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use kordar\yak\helpers\ConfigHelper;
 use yii\helpers\ArrayHelper;
 use kordar\yak\helpers\SidebarHelper;
+use kordar\yak\helpers\YakConfigHelper;
 
 \kordar\yak\assets\lte\AppAsset::register($this);
-
-$config = ConfigHelper::config('basic');
 
 ?>
 <?php $this->beginPage() ?>
@@ -32,7 +30,7 @@ $config = ConfigHelper::config('basic');
 
     <header class="main-header">
         <!-- Logo -->
-        <?= \kordar\yak\widgets\navbar\Navbar::widget() ?>
+        <?= \kordar\yak\widgets\navbar\Radios::widget() ?>
     </header>
 
     <!-- =============================================== -->
@@ -66,7 +64,9 @@ $config = ConfigHelper::config('basic');
 
         <!-- Main content -->
         <section class="content">
-            <?= $content ?>
+            <div class="row">
+                <div class="col-sm-12"><?= $content ?></div>
+            </div>
         </section>
         <!-- /.content -->
     </div>
@@ -95,8 +95,8 @@ $config = ConfigHelper::config('basic');
 
         </div>
 
-        <strong>Copyright &copy; 2013-<?= date('Y')?> · <?= ArrayHelper::getValue($config, 'company', '@company')?> · </strong>
-        <?= ArrayHelper::getValue($config, 'title', '@title')?>
+        <strong>Copyright &copy; 2013-<?= date('Y')?> · <?= YakConfigHelper::config('yak.company', '@company')?> · </strong>
+        <?= YakConfigHelper::config('yak.title', '@title')?>
 
     </footer>
 

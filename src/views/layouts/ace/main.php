@@ -6,10 +6,9 @@ use kordar\yak\assets\ace\AppAsset;
 use yii\helpers\Html;
 use kordar\yak\helpers\SidebarHelper;
 use yii\helpers\ArrayHelper;
+use kordar\yak\helpers\YakConfigHelper;
 
 $assetObj = AppAsset::register($this);
-
-$config = \kordar\yak\helpers\ConfigHelper::config('basic');
 
 ?>
 <?php $this->beginPage() ?>
@@ -26,7 +25,7 @@ $config = \kordar\yak\helpers\ConfigHelper::config('basic');
     <body class="no-skin">
     <?php $this->beginBody() ?>
 
-    <?= \kordar\yak\widgets\navbar\Navbar::widget();?>
+    <?= \kordar\yak\widgets\navbar\Radios::widget();?>
 
     <div class="main-container ace-save-state" id="main-container">
 
@@ -86,10 +85,10 @@ $config = \kordar\yak\helpers\ConfigHelper::config('basic');
                 <div class="footer-content">
                             <span class="bigger-120">
                                 <span class="blue bolder">
-                                    <?= ArrayHelper::getValue($config, 'company', '@company')?>
+                                    <?= YakConfigHelper::config('yak.site.company', '@company')?>
                                 </span>
                                  |
-                                <?= ArrayHelper::getValue($config, 'title', '@title')?> &copy; 2013-<?= date('Y')?>
+                                <?= YakConfigHelper::config('yak.site.title', '@title')?> &copy; 2013-<?= date('Y')?>
                             </span>
 
                     &nbsp; &nbsp;

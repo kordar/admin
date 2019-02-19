@@ -1,7 +1,7 @@
 <?php
 namespace kordar\yak\widgets\navbar;
 
-use kordar\yak\helpers\ConfigHelper;
+use kordar\yak\helpers\YakConfigHelper;
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
 
@@ -9,7 +9,7 @@ class Navbar extends Widget
 {
     public function run()
     {
-        $config = ConfigHelper::widgetConfig('navbar');
+        $config = YakConfigHelper::widgetConfig('navbar');
         $classname = ArrayHelper::getValue($config, 'class', 'kordar\yak\widgets\navbar\_' . strtoupper($GLOBALS['yak_sign']));
         $identity = \Yii::$app->user->identity;
 

@@ -3,12 +3,9 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use kordar\yak\helpers\ConfigHelper;
-use yii\helpers\ArrayHelper;
+use kordar\yak\helpers\YakConfigHelper;
 
 \kordar\yak\assets\lte\AuthAsset::register($this);
-
-$config = ConfigHelper::config('basic');
 
 $js = <<<JS
     $('input').iCheck({
@@ -38,10 +35,10 @@ $this->registerJs($js);
     <div class="login-box">
         <div class="login-logo">
             <h1>
-                <span class="red"><?= ArrayHelper::getValue($config, 'title', '@title')?></span>
-                <span class="white" id="id-text2"><?= ArrayHelper::getValue($config, 'sub-title', '@sub-title')?></span>
+                <span class="red"><?= YakConfigHelper::config('yak.site.title', '@title')?></span>
+                <span class="white" id="id-text2"><?= YakConfigHelper::config('yak.site.sub-title', '@sub-title')?></span>
             </h1>
-            <h4 class="blue" id="id-company-text">&copy; <?= ArrayHelper::getValue($config, 'company', '@company')?></h4>
+            <h4 class="blue" id="id-company-text">&copy; <?= YakConfigHelper::config('yak.site.company', '@company')?></h4>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body"><?= $content ?></div>

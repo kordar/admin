@@ -1,16 +1,16 @@
 <?php
 namespace kordar\yak\widgets\sidebar;
 
+use kordar\yak\helpers\YakConfigHelper;
 use kordar\yak\libs\tree\MenuIterator;
 use kordar\yak\models\admin\User;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 class _LTE extends AbstractSidebar
 {
     public function beforeRender()
     {
-        $defaultAvatar = ArrayHelper::getValue(\Yii::$app->params['yak'], 'default-avatar', '#');
+        $defaultAvatar = YakConfigHelper::config('yak.default-avatar', '#');
 
         /**
          * @var $identity User

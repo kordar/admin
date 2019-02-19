@@ -33,7 +33,7 @@ $this->params['link'] = 'yak/rbac/roles';
         <div class="well well-checkbox">
             <h4 class="green smaller lighter"><?= Yii::t('yak', 'Assign Roles')?></h4>
 
-            <?= Html::checkboxList('roles', RbacHelper::rolesChild($name), RbacHelper::roles($name), YakHelper::aceCheckboxListOptions());?>
+            <?= Html::checkboxList('roles', RbacHelper::rolesChild($name), RbacHelper::roles($name), YakHelper::checkboxListOptions());?>
 
         </div>
 
@@ -41,7 +41,7 @@ $this->params['link'] = 'yak/rbac/roles';
             <h4 class="orange smaller lighter"><?= Yii::t('yak', 'Assign Permissions')?></h4>
 
             <?php foreach (RbacHelper::permissionsToGroup() as $permission):?>
-                <?= Html::checkboxList('permissions', RbacHelper::permissionsByRole($name), $permission, YakHelper::aceCheckboxListOptions());?>
+                <?= Html::checkboxList('permissions', RbacHelper::permissionsByRole($name), $permission, YakHelper::checkboxListOptions());?>
                 <hr>
             <?php endforeach;?>
 

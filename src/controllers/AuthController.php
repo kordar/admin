@@ -4,7 +4,7 @@ namespace kordar\yak\controllers;
 use kordar\yak\models\auth\PasswordResetRequestForm;
 use kordar\yak\models\auth\ResetPasswordForm;
 use kordar\yak\helpers\YakHelper;
-use kordar\yak\helpers\ConfigHelper;
+use kordar\yak\helpers\YakConfigHelper;
 use yii\base\InvalidParamException;
 use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
@@ -63,10 +63,9 @@ class AuthController extends YakController
             return $this->goBack();
         }
 
-        $config = ConfigHelper::config('auth');
-        $render = ArrayHelper::getValue($config, 'login-template', 'login/simple');
+        $render = YakConfigHelper::config('yak.auth.template', 'login/simple');
         return $this->renderTpl($render, [
-            'model' => $model, 'bg' => ArrayHelper::getValue($config, 'login-bg', '')
+            'model' => $model, 'bg' => YakConfigHelper::config('yak.auth.bg', '#')
         ]);
     }
 
