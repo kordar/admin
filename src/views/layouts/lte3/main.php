@@ -28,15 +28,13 @@ use kordar\yak\helpers\YakConfigHelper;
 <!-- Site wrapper -->
 <div class="wrapper">
 
-    <header class="main-header">
-        <!-- Logo -->
-        <?= \kordar\yak\widgets\navbar\Navbar::widget() ?>
-    </header>
+    <!-- Logo -->
+    <?= \kordar\yak\widgets\navbar\Navbar::widget() ?>
 
     <!-- =============================================== -->
 
     <!-- Left side column. contains the sidebar -->
-    <aside class="main-sidebar">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- sidebar: style can be found in sidebar.less -->
         <?= \kordar\yak\widgets\sidebar\Sidebar::widget([
             'link'=> ArrayHelper::getValue($this->params, 'link', SidebarHelper::linker()),
@@ -52,13 +50,17 @@ use kordar\yak\helpers\YakConfigHelper;
         <!-- Content Header (Page header) -->
         <section class="content-header">
 
-            <?= \kordar\yak\widgets\header\Header::widget(['info' => [
-                'title' => Html::encode($this->title), 'small' => ArrayHelper::getValue($this->params, 'small-title', '')
-            ]]) ?>
+            <?php
+//            \kordar\yak\widgets\header\Header::widget(['info' => [
+//                'title' => Html::encode($this->title), 'small' => ArrayHelper::getValue($this->params, 'small-title', '')
+//            ]])
+            ?>
 
-            <?= \kordar\yak\widgets\Breadcrumbs::widget([
-                'links' => ArrayHelper::getValue($this->params, 'breadcrumbs', []),
-            ]) ?>
+            <?php
+//            \kordar\yak\widgets\Breadcrumbs::widget([
+//                'links' => ArrayHelper::getValue($this->params, 'breadcrumbs', []),
+//            ])
+            ?>
 
         </section>
 
