@@ -5,7 +5,7 @@
 use yii\helpers\Html;
 use kordar\yak\helpers\YakConfigHelper;
 
-\kordar\yak\assets\lte\AuthAsset::register($this);
+\kordar\yak\assets\lte3\AuthAsset::register($this);
 
 $js = <<<JS
     $('input').iCheck({
@@ -16,6 +16,20 @@ $js = <<<JS
 JS;
 
 $this->registerJs($js);
+
+$css = <<<CSS
+    div.has-feedback {
+        position: relative;
+    }
+    
+    div.has-feedback .form-control-feedback {
+        position: absolute;
+        top: 0;
+        right: 8px;
+    }
+CSS;
+
+$this->registerCss($css);
 
 ?>
 <?php $this->beginPage() ?>
@@ -41,7 +55,7 @@ $this->registerJs($js);
             <h4 class="blue" id="id-company-text">&copy; <?= YakConfigHelper::config('yak.site.company', '@company')?></h4>
         </div>
         <!-- /.login-logo -->
-        <div class="login-box-body"><?= $content ?></div>
+        <div class="card"><?= $content ?></div>
     </div>
 <?php $this->endBody() ?>
 </body>

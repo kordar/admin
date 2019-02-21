@@ -8,7 +8,7 @@ use yii\helpers\ArrayHelper;
 use kordar\yak\helpers\SidebarHelper;
 use kordar\yak\helpers\YakConfigHelper;
 
-\kordar\yak\assets\lte3\AppAsset::register($this);
+\kordar\yak\assets\lte\AppAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
