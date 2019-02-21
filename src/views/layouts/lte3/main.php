@@ -50,17 +50,27 @@ use kordar\yak\helpers\YakConfigHelper;
         <!-- Content Header (Page header) -->
         <section class="content-header">
 
-            <?php
-//            \kordar\yak\widgets\header\Header::widget(['info' => [
-//                'title' => Html::encode($this->title), 'small' => ArrayHelper::getValue($this->params, 'small-title', '')
-//            ]])
-            ?>
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                    <?= \kordar\yak\widgets\header\Header::widget(['info' => [
+                        'title' => Html::encode($this->title), 'small' => ArrayHelper::getValue($this->params, 'small-title', '')
+                    ]])?>
+                    </div>
+                    <div class="col-sm-6">
+                        <?= \kordar\yak\widgets\Breadcrumbs::widget([
+                                'tag' => 'ol', 'options' => ['class' => 'breadcrumb float-sm-right'],
+                            'activeItemTemplate' => "<li class=\"breadcrumb-item active\">{i} {link}</li>\n",
+                            'itemTemplate' => "<li class=\"breadcrumb-item\">{i} {link}</li>\n",
+                            'links' => ArrayHelper::getValue($this->params, 'breadcrumbs', []),
+                        ])?>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
 
-            <?php
-//            \kordar\yak\widgets\Breadcrumbs::widget([
-//                'links' => ArrayHelper::getValue($this->params, 'breadcrumbs', []),
-//            ])
-            ?>
+
+
+
 
         </section>
 

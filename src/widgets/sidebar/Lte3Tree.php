@@ -11,12 +11,12 @@ class Lte3Tree extends \RecursiveIteratorIterator
 
     public function beginIteration()
     {
-        $this->sideBarHtml .= "<ul class=\"sidebar-menu\">\n";
+        $this->sideBarHtml .= "<ul class=\"nav nav-pills nav-sidebar flex-column\" data-widget=\"treeview\" role=\"menu\" data-accordion=\"false\">\n";
     }
 
     public function beginChildren()
     {
-        $this->sideBarHtml .= "<ul class='treeview-menu'>\n";
+        $this->sideBarHtml .= "<ul class=\"nav nav-treeview\">\n";
     }
 
     public function endChildren()
@@ -31,20 +31,24 @@ class Lte3Tree extends \RecursiveIteratorIterator
 
     public function createNode($node = [], $isChildren = false)
     {
+
         $href = '#';
         if (!empty($node['href'])) {
             $href = ['/' . $node['href']];
         }
 
+        $active = $node['href'] == $this->linker ?  ' active' : '';
+
         if ($isChildren) {
-            $li = $node['href'] == $this->linker ? '<li class="active treeview">' : '<li class="treeview">';
-            $a = Html::a("<i class=\"fa {$node['icon']}\"></i><span> {$node['title']} </span><span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>", $href);
-            return $li . $a;
+            return strtr('<li class="nav-item has-treeview">{a}', ['{a}' => Html::a(
+                "<i class=\"nav-icon fa {$node['icon']}\"></i><p>{$node['title']}<i class=\"right fa fa-angle-left\"></i></p>",
+                $href, ['class' => 'nav-link' . $active])]);
         } else {
-            $li = $node['href'] == $this->linker ? '<li class="active">' : '<li>';
-            $a = Html::a("<i class=\"fa {$node['icon']}\"></i><span> {$node['title']} </span>", $href);
-            return $li . $a . "</li>";
+            return strtr('<li class="nav-item">{a}</li>', ['{a}' => Html::a(
+                "<i class=\"nav-icon fa {$node['icon']}\"></i><p>{$node['title']}</p>",
+                $href, ['class' => 'nav-link' . $active])]);
         }
+
     }
 
 }

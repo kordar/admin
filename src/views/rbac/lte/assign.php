@@ -17,43 +17,41 @@ $this->title = Yii::t('yak', 'Assign');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('yak', 'Roles'), 'url' => ['roles'], 'icon'=>'fa-group'];
 $this->params['breadcrumbs'][] = $this->title;
 
+$this->params['small-title'] = $name;
+
 $this->params['link'] = 'yak/rbac/roles';
 ?>
-<div class="role-create">
 
-    <?= \kordar\yak\widgets\header\Header::widget(['info' => [
-        'title' => Html::encode($this->title),
-        'small' => Html::tag('b', '[' . $name . '] ') . Yii::t('yak', 'Assign')
-    ]]) ?>
 
-    <div class="role-form">
+<?php $form = ActiveForm::begin(); ?>
 
-        <?php $form = ActiveForm::begin(); ?>
-
-        <div class="well well-checkbox">
-            <h4 class="green smaller lighter"><?= Yii::t('yak', 'Assign Roles')?></h4>
-
-            <?= Html::checkboxList('roles', RbacHelper::rolesChild($name), RbacHelper::roles($name), YakHelper::checkboxListOptions());?>
-
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><?= Yii::t('yak', 'Assign Roles')?></h3>
         </div>
+        <div class="box-body">
+            <?= kordar\yak\widgets\checkbox\HtmlCheckbox::widget([
+                'name' => 'roles', 'items' => RbacHelper::roles($name), 'selected' => RbacHelper::rolesChild($name)
+            ])?>
+        </div>
+    </div>
 
-        <div class="well well-checkbox">
-            <h4 class="orange smaller lighter"><?= Yii::t('yak', 'Assign Permissions')?></h4>
-
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><?= Yii::t('yak', 'Assign Permissions')?></h3>
+        </div>
+        <div class="box-body">
             <?php foreach (RbacHelper::permissionsToGroup() as $permission):?>
-                <?= Html::checkboxList('permissions', RbacHelper::permissionsByRole($name), $permission, YakHelper::checkboxListOptions());?>
-                <hr>
+                <?= kordar\yak\widgets\checkbox\HtmlCheckbox::widget([
+                    'name' => 'permissions', 'items' => $permission, 'selected' => RbacHelper::permissionsByRole($name)
+                ])?>
             <?php endforeach;?>
-
         </div>
 
-
-        <div class="form-group">
+        <div class="box-footer">
             <?= Html::submitButton(Yii::t('yak', 'Submit'), ['class' => 'btn btn-success']) ?>
         </div>
 
-        <?php ActiveForm::end(); ?>
-
     </div>
 
-</div>
+<?php ActiveForm::end(); ?>
