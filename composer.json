@@ -35,6 +35,10 @@
                 "bower-asset/eve": {
                     "type": "bower-vcs",
                     "url": "https://github.com/adobe-webplatform/eve.git"
+                },
+                "bower-asset/yak-assets": {
+                    "type": "bower-vcs",
+                    "url": "https://github.com/kordar/yak-assets.git"
                 }
             }
         }

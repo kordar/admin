@@ -15,7 +15,7 @@ class DefaultController extends YakController
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
-                'view' => 'ace-error'
+                'view' => 'error'
             ]
         ];
     }

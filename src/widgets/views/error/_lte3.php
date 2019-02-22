@@ -1,28 +1,29 @@
 <?php
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
 /* @var $name string */
 /* @var $message string */
 /* @var $exception Exception */
 
-use yii\helpers\Html;
-
-$this->title = $name;
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="well">
-        <h1 class="grey lighter smaller">
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
             <span class="blue bigger-125">
                 <i class="ace-icon fa fa-sitemap"></i>
             </span>
             <?= Html::encode($this->title)?>
-        </h1>
+        </h3>
+    </div>
 
-        <hr />
-    <h3 class="lighter smaller"><?= nl2br(Html::encode($message)) ?>
-        <br>
-        <small>
-            <?= $exception->getTraceAsString()?>
-        </small></h3>
+    <div class="card-body">
+        <h3 class="lighter smaller"><?= nl2br(Html::encode($message)) ?>
+            <br>
+            <small>
+                <?= $exception->getTraceAsString()?>
+            </small></h3>
 
         <div>
             <form class="form-search">
@@ -62,3 +63,8 @@ $this->params['breadcrumbs'][] = $this->title;
             </a>-->
         </div>
     </div>
+
+
+
+
+</div>
