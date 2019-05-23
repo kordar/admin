@@ -22,9 +22,13 @@ class YakConfigHelper
      */
     public static function widgetConfig($sign, $default = [])
     {
+        $config = $default;
         if (isset(\Yii::$app->params['yak.widgets.' . $sign])) {
-            return \Yii::$app->params['yak.widgets.' . $sign];
+            $config = \Yii::$app->params['yak.widgets.' . $sign];
         }
-        return $default;
+        $config['classname'] = ArrayHelper::getValue($config, 'class',
+            'kordar\\yak\\_' . $GLOBALS['yak_sign'] . '\\widgets\\' . ucfirst($sign)
+        );
+        return $config;
     }
 }

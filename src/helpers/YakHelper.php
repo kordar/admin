@@ -3,6 +3,7 @@ namespace kordar\yak\helpers;
 
 use kordar\yak\widgets\radios\Checkbox;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * Class YakHelper
@@ -70,5 +71,17 @@ class YakHelper
     {
         $icon = empty($icon) ? '' : Html::tag('i', '', ['class' => 'fa ' . $icon . ' bigger-110']);
         return Html::a("{$icon} {$title}", $url, $options);
+    }
+
+    public static function renderPopLinker($target, $title, $url, $options, $icon = '')
+    {
+        $options['yak-modal-url'] = Url::toRoute($url);
+        $options['data-toggle'] = 'modal';
+        $options['data-target'] = $target;
+        $options['yak-modal-title'] = $title;
+        $icon = empty($icon) ? '' : Html::tag('i', '', [
+            'class' => 'fa ' . $icon . ' bigger-110',
+        ]);
+        return Html::a("{$icon} {$title}", '#', $options);
     }
 }

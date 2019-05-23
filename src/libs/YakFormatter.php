@@ -12,8 +12,13 @@ class YakFormatter extends Formatter
             return $this->nullDisplay;
         }
 
+        $cls = $key;
+        if (!is_numeric($cls)) {
+            $cls = ord($key);
+        }
+
         $class = ['alert-success', 'alert-info', 'alert-warning', 'alert-danger'];
-        return !isset($params[$key]) ? $this->nullDisplay : Html::tag('i', $params[$key], ['class' => $class[$key % 4]]);
+        return !isset($params[$key]) ? $this->nullDisplay : Html::tag('i', $params[$key], ['class' => $class[$cls % 4]]);
     }
 
     public function asIcon($value)
@@ -24,4 +29,21 @@ class YakFormatter extends Formatter
 
         return Html::tag('span', '', ['class' => "fa {$value}"]);
     }
+
+    public function asThumb30($value)
+    {
+        if ($value === null) {
+            return $this->nullDisplay;
+        }
+        return Html::img($value, ['width' => 30]);
+    }
+
+    public function asDehtml($value)
+    {
+        if ($value === null) {
+            return $this->nullDisplay;
+        }
+        return html_entity_decode($value);
+    }
+
 }

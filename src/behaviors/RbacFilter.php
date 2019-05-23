@@ -45,7 +45,7 @@ class RbacFilter extends ActionFilter
                 exit();
             }
 
-            throw new HttpException(503, \Yii::t('ace', 'Sorry, you do not have permission to access this page!'));
+            throw new HttpException(503, \Yii::t('yak', 'Sorry, you do not have permission to access this page!'));
         }
     }
 

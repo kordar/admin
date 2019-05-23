@@ -1,9 +1,12 @@
 <?php
 namespace kordar\yak\assets;
 
-use kordar\yak\assets\ace\AceBundleAsset;
-
-class WDatePicketAsset extends AceBundleAsset
+/**
+ * Class WDatePicketAsset
+ * @package kordar\yak\assets
+ * @item *:WDatePicketAsset
+ */
+class WDatePicketAsset extends \yii\web\AssetBundle
 {
     public $sourcePath = '@bower/yak-assets/My97DatePicker';
 

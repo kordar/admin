@@ -14,7 +14,9 @@ class SidebarHelper
 
     static public function getTree()
     {
-        return Menu::sidebarTree();
+        $classname = YakConfigHelper::config('yak.sidebar.class', Menu::className());
+        $sidebar = \Yii::createObject($classname);
+        return $sidebar->sidebarTree();
     }
 
     public static function linker()

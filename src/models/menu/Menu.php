@@ -2,6 +2,7 @@
 
 namespace kordar\yak\models\menu;
 
+use kordar\yak\helpers\YakConfigHelper;
 use kordar\yak\models\admin\User as Admin;
 use kordar\yak\libs\tree\GenerateTreeByArray;
 use kordar\yak\libs\tree\MenuIterator;
@@ -24,14 +25,14 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class Menu extends Yak
+class Menu extends Yak implements SidebarTreeInterface
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%menu}}';
+        return YakConfigHelper::config('yak.menu_table', '{{%menu}}');
     }
 
     public function behaviors()
@@ -85,8 +86,8 @@ class Menu extends Yak
 
     static public function sidebarData()
     {
-        $dependency = new \yii\caching\DbDependency(['db'=>self::getDbSign(), 'sql'=>'SELECT MAX(updated_at) FROM {{%menu}}']);
-        return self::find()->cache(3600, $dependency)->indexBy('id')->orderBy('sort DESC')->where(['language'=>\Yii::$app->language])->asArray()->all();
+        $dependency = new \yii\caching\DbDependency(['db'=>self::getDbSign(), 'sql'=>'SELECT MAX(updated_at) FROM ' . self::tableName()]);
+        return self::find()->cache(3600, $dependency)->indexBy('id')->orderBy('sort DESC')->asArray()->all();
     }
 
     /**
