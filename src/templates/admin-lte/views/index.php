@@ -35,7 +35,8 @@ $this->params['small-title'] = '查看 &amp; 创建 &amp; 编辑 &amp; 删除';
         <div class="box-body">
             <?= $generator->enablePjax ? "    <?php Pjax::begin(); ?>\n" : '' ?>
             <?php if(!empty($generator->searchModelClass)): ?>
-                <?= "    <?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $this->render('_search', ['model' => $searchModel]); ?>
+                <?= "<?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>
+				echo $this->render('_search', ['model' => $searchModel]); ?>
                 <div class="space-4"></div>
             <?php endif; ?>
 

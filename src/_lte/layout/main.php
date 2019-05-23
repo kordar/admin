@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use yii\helpers\Html;
@@ -44,12 +45,12 @@ $this->registerCss($css);
 <!doctype html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="description" content="overview &amp; stats" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta charset="<?= Yii::$app->charset ?>">
+	<meta name="description" content="overview &amp; stats"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+	<title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
 <body class='hold-transition skin-blue sidebar-mini'>
@@ -57,29 +58,28 @@ $this->registerCss($css);
 <!-- Site wrapper -->
 <div class="wrapper">
 
-    <header class="main-header">
-        <!-- Logo -->
+	<header class="main-header">
+		<!-- Logo -->
         <?= \kordar\yak\widgets\layout\Navbar::widget() ?>
-    </header>
+	</header>
 
-    <!-- =============================================== -->
+	<!-- =============================================== -->
 
-    <!-- Left side column. contains the sidebar -->
-    <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
+	<!-- Left side column. contains the sidebar -->
+	<aside class="main-sidebar">
+		<!-- sidebar: style can be found in sidebar.less -->
         <?= \kordar\yak\widgets\layout\Sidebar::widget([
-            'link'=> ArrayHelper::getValue($this->params, 'link', SidebarHelper::linker()),
-            'tree'=> SidebarHelper::getTree()
+            'link' => ArrayHelper::getValue($this->params, 'link', ''), 'tree' => SidebarHelper::getTree()
         ]) ?>
-        <!-- /.sidebar -->
-    </aside>
+		<!-- /.sidebar -->
+	</aside>
 
-    <!-- =============================================== -->
+	<!-- =============================================== -->
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
 
             <?= \kordar\yak\widgets\layout\Header::widget([
                 'title' => Html::encode($this->title), 'subTitle' => ArrayHelper::getValue($this->params, 'small-title', '')
@@ -89,23 +89,23 @@ $this->registerCss($css);
                 'links' => ArrayHelper::getValue($this->params, 'breadcrumbs', []),
             ]) ?>
 
-        </section>
+		</section>
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                <div class="col-sm-12">
+		<!-- Main content -->
+		<section class="content">
+			<div class="row">
+				<div class="col-sm-12">
                     <?= \kordar\yak\widgets\layout\Alert::widget() ?>
                     <?= $content ?>
-                </div>
-            </div>
-        </section>
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+				</div>
+			</div>
+		</section>
+		<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
+	<footer class="main-footer">
+		<div class="pull-right hidden-xs">
 
             <span class="action-buttons">
                 <a href="#">
@@ -125,17 +125,18 @@ $this->registerCss($css);
                 </a>
             </span>
 
-        </div>
+		</div>
 
-        <strong>Copyright &copy; 2013-<?= date('Y')?> · <?= YakConfigHelper::config('yak.site.company', '@company')?> · </strong>
-        <?= YakConfigHelper::config('yak.site.title', '@title')?>
+		<strong>Copyright &copy; 2013-<?= date('Y') ?> · <?= YakConfigHelper::config('yak.site.company', '@company') ?>
+			· </strong>
+        <?= YakConfigHelper::config('yak.site.title', '@title') ?>
 
-    </footer>
+	</footer>
 
-    <!-- Control Sidebar -->
+	<!-- Control Sidebar -->
 
-    <!-- /.control-sidebar -->
-    <!-- Add the sidebar's background. This div must be placed
+	<!-- /.control-sidebar -->
+	<!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
 
 </div>

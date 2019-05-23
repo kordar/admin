@@ -20,18 +20,18 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'icon' => 'fa-plus'];
 
 $this->params['small-title'] = '创建';
 
-$this->params['link'] = 'index';
+$this->params['link'] = '#index';
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-create">
 
-    <div class="box">
+	<div class="box">
 
-        <div class="box-body">
+		<div class="box-body">
             <?= "<?= " ?>$this->render('_form', [
-            'model' => $model,
-            ]) ?>
-        </div>
-    </div>
+			'model' => $model,
+			]) ?>
+		</div>
+	</div>
 
 
 </div>

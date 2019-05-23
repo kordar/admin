@@ -1,6 +1,8 @@
 <?php
+
 namespace kordar\yak\widgets\layout;
 
+use kordar\yak\helpers\SidebarHelper;
 use kordar\yak\helpers\YakConfigHelper;
 
 /**
@@ -24,6 +26,12 @@ class Sidebar extends \yii\bootstrap\Widget
     {
         $config = YakConfigHelper::widgetConfig('sidebar');
         $config['default-avatar'] = YakConfigHelper::config('yak.default-avatar', '#');
+
+        if ($this->link === '') {
+            $this->link = SidebarHelper::linker();
+        } elseif (strpos($this->link, '#') !== false) {
+            $this->link = SidebarHelper::linker(ltrim($this->link, '#'));
+        }
 
         /**
          * @var $obj \kordar\yak\widgets\YakWidget

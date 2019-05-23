@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\helpers;
 
 use kordar\yak\models\menu\Menu;
@@ -19,11 +20,12 @@ class SidebarHelper
         return $sidebar->sidebarTree();
     }
 
-    public static function linker()
+    public static function linker($actionId = null)
     {
+        $actionId = $actionId ?: \Yii::$app->controller->action->id;
         return (\Yii::$app->controller->module->id == \Yii::$app->id) ?
-            \Yii::$app->controller->id . '/' . \Yii::$app->controller->action->id :
-            \Yii::$app->controller->module->id . '/' . \Yii::$app->controller->id . '/' . \Yii::$app->controller->action->id;
+            \Yii::$app->controller->id . '/' . $actionId :
+            \Yii::$app->controller->module->id . '/' . \Yii::$app->controller->id . '/' . $actionId;
     }
 
 }

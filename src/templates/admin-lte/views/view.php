@@ -23,28 +23,30 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'icon' => 'fa-eye'];
 
 $this->params['small-title'] = '查看';
 
-$this->params['link'] = 'index';
+$this->params['link'] = '#index';
+
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view">
 
-    <div class="box">
+	<div class="box">
 
-        <div class="box-body">
+		<div class="box-body">
 
-            <p>
-                <?= "<?= " ?>Html::a(<?= $generator->generateString('更新') ?>, ['update', <?= $urlParams ?>], ['class' => 'btn btn-primary']) ?>
+			<p>
+                <?= "<?= " ?>Html::a(<?= $generator->generateString('更新') ?>, ['update', <?= $urlParams ?>], ['class' =>
+				'btn btn-primary']) ?>
                 <?= "<?= " ?>Html::a(<?= $generator->generateString('删除') ?>, ['delete', <?= $urlParams ?>], [
-                'class' => 'btn btn-danger',
-                'data' => [
-                'confirm' => <?= $generator->generateString('Are you sure you want to delete this item?') ?>,
-                'method' => 'post',
-                ],
-                ]) ?>
-            </p>
+				'class' => 'btn btn-danger',
+				'data' => [
+				'confirm' => <?= $generator->generateString('Are you sure you want to delete this item?') ?>,
+				'method' => 'post',
+				],
+				]) ?>
+			</p>
 
             <?= "<?= " ?>DetailView::widget([
-            'model' => $model,
-            'attributes' => [
+			'model' => $model,
+			'attributes' => [
             <?php
             if (($tableSchema = $generator->getTableSchema()) === false) {
                 foreach ($generator->getColumnNames() as $name) {
@@ -57,11 +59,11 @@ $this->params['link'] = 'index';
                 }
             }
             ?>
-            ],
-            ]) ?>
+			],
+			]) ?>
 
-        </div>
+		</div>
 
-    </div>
+	</div>
 
 </div>

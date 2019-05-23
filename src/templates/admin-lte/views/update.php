@@ -31,18 +31,18 @@ $this->params['breadcrumbs'][] = ['label' => <?= $generator->generateString('Upd
 
 $this->params['small-title'] = '编辑';
 
-$this->params['link'] = 'index';
+$this->params['link'] = '#index';
 ?>
 <div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-update">
 
-    <div class="box">
+	<div class="box">
 
-        <div class="box-body">
+		<div class="box-body">
             <?= '<?= ' ?>$this->render('_form', [
-            'model' => $model,
-            ]) ?>
-        </div>
+			'model' => $model,
+			]) ?>
+		</div>
 
-    </div>
-    
+	</div>
+
 </div>
