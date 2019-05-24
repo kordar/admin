@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\_ace\assets;
 
 class UploadAsset extends \yii\web\AssetBundle
@@ -11,6 +12,6 @@ class UploadAsset extends \yii\web\AssetBundle
 
     public $depends = [
         'yii\web\JqueryAsset',
-        'kordar\yak\assets\ace\plugins\tools\BootboxAsset',
+        'kordar\yak\assets\BootboxAsset',
     ];
 }

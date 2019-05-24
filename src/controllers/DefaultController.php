@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\controllers;
 
 /**

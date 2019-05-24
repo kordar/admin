@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\_lte\widgets;
 
 use kordar\yak\assets\Select2Asset;
@@ -32,12 +33,12 @@ class Select extends \kordar\yak\widgets\YakWidget
 
         $options = ['class' => 'form-control select2', 'style' => 'width:100%'];
 
-        if ($this->config['multiple']) {
+        if ($this->widget->multiple) {
             $options['multiple'] = 'multiple';
         }
 
-        if ($this->config['data-placeholder']) {
-            $options['data-placeholder'] = $this->config['data-placeholder'];
+        if ($this->widget->dataPlaceholder) {
+            $options['data-placeholder'] = $this->widget->dataPlaceholder;
         }
 
         return Html::activeDropDownList($this->widget->model, $this->widget->attribute, $this->widget->items, $options);

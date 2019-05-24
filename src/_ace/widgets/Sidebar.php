@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\_ace\widgets;
 
 use kordar\yak\libs\tree\MenuIterator;

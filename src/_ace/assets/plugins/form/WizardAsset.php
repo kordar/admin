@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\_ace\assets\plugins\form;
 
 use kordar\yak\_ace\assets\AceBundleAsset;
@@ -15,10 +16,10 @@ class WizardAsset extends AceBundleAsset
     ];
 
     public $depends = [
-        'kordar\yak\assets\ace\plugins\JqueryUIAsset',
-        'kordar\yak\assets\ace\plugins\tools\ValidateAsset',
-        'kordar\yak\assets\ace\plugins\tools\AdditionalMethodsAsset',
-        'kordar\yak\assets\ace\plugins\tools\BootboxAsset',
-        'kordar\yak\assets\ace\plugins\form\MaskedInputAsset',
+        'kordar\yak\_ace\assets\plugins\JqueryUIAsset',
+        'kordar\yak\_ace\assets\plugins\tools\ValidateAsset',
+        'kordar\yak\_ace\assets\plugins\tools\AdditionalMethodsAsset',
+        'kordar\yak\_ace\assets\plugins\tools\BootboxAsset',
+        'kordar\yak\_ace\assets\plugins\form\MaskedInputAsset',
     ];
 }

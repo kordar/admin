@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\_ace\assets\plugins\form;
 
 use kordar\yak\_ace\assets\AceBundleAsset;
@@ -15,6 +16,6 @@ class DropZoneAsset extends AceBundleAsset
 
     public $depends = [
         'yii\bootstrap\BootstrapPluginAsset',
-        'kordar\yak\assets\ace\FontAwesomeAsset',
+        'kordar\yak\assets\FontAwesomeAsset',
     ];
 }

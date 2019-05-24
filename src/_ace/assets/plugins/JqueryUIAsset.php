@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\_ace\assets\plugins;
 
 use kordar\yak\_ace\assets\AceBundleAsset;
@@ -10,13 +11,13 @@ class JqueryUIAsset extends AceBundleAsset
     ];
 
     public $js = [
-        ['js/excanvas.min.js', 'condition'=>'lte IE 8'],
+        ['js/excanvas.min.js', 'condition' => 'lte IE 8'],
         'js/jquery-ui.custom.min.js',
         'js/jquery.ui.touch-punch.min.js',
     ];
 
     public $depends = [
         'yii\bootstrap\BootstrapPluginAsset',
-        'kordar\yak\assets\ace\FontAwesomeAsset',
+        'kordar\yak\assets\FontAwesomeAsset',
     ];
 }

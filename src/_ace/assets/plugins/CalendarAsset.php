@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\_ace\assets\plugins;
 
 use kordar\yak\_ace\assets\AceBundleAsset;
@@ -15,7 +16,7 @@ class CalendarAsset extends AceBundleAsset
     ];
 
     public $depends = [
-        'kordar\yak\assets\ace\plugins\JqueryUIAsset',
-        'kordar\yak\assets\ace\plugins\tools\BootboxAsset',
+        'kordar\yak\_ace\assets\plugins\JqueryUIAsset',
+        'kordar\yak\assets\BootboxAsset',
     ];
 }

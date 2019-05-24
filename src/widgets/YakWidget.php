@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\widgets;
 
 /**
@@ -9,7 +10,7 @@ namespace kordar\yak\widgets;
 abstract class YakWidget extends \yii\base\BaseObject
 {
     /**
-     * @var $widget null | \yii\bootstrap\Widget | \yii\base\Widget | \yii\widgets\InputWidget | \kordar\yak\widgets\layout\Header | \kordar\yak\widgets\form\Checkbox | \kordar\yak\widgets\layout\Sidebar
+     * @var $widget null | \yii\bootstrap\Widget | \yii\base\Widget | \yii\widgets\InputWidget | \kordar\yak\widgets\layout\Header | \kordar\yak\widgets\form\Checkbox | \kordar\yak\widgets\layout\Sidebar | \kordar\yak\widgets\form\Select
      */
     public $widget = null;
 

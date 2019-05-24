@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\_ace\widgets;
 
 use kordar\yak\_ace\assets\plugins\form\ChosenAsset;
@@ -20,7 +21,7 @@ class Select extends \kordar\yak\widgets\YakWidget
 
     protected function renderDefault()
     {
-        return Html::activeDropDownList($this->widget->model, $this->widget->attribute, $this->widget->items, []);
+        return Html::activeDropDownList($this->widget->model, $this->widget->attribute, $this->widget->items, ['class' => 'form-control']);
     }
 
     public function renderChosen()
@@ -53,12 +54,12 @@ class Select extends \kordar\yak\widgets\YakWidget
 
         $options = ['class' => 'chosen-select form-control'];
 
-        if ($this->config['multiple']) {
+        if ($this->widget->multiple) {
             $options['multiple'] = 'multiple';
         }
 
-        if ($this->config['data-placeholder']) {
-            $options['data-placeholder'] = $this->config['data-placeholder'];
+        if ($this->widget->dataPlaceholder) {
+            $options['data-placeholder'] = $this->widget->dataPlaceholder;
         }
 
         return Html::activeDropDownList($this->widget->model, $this->widget->attribute, $this->widget->items, $options);

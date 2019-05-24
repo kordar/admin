@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\_ace\assets\plugins\tools;
 
 use kordar\yak\_ace\assets\AceBundleAsset;
@@ -14,6 +15,6 @@ class GritterAsset extends AceBundleAsset
     ];
 
     public $depends = [
-        'kordar\yak\assets\ace\plugins\JqueryUIAsset'
+        'kordar\yak\_ace\assets\plugins\JqueryUIAsset'
     ];
 }

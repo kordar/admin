@@ -1,9 +1,10 @@
 <?php
+
 namespace kordar\yak\widgets\form;
 
 use kordar\yak\helpers\YakConfigHelper;
 
-class Select extends \yii\bootstrap\Widget
+class Select extends \yii\widgets\InputWidget
 {
     /**
      * @var array

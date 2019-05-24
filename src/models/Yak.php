@@ -1,4 +1,5 @@
 <?php
+
 namespace kordar\yak\models;
 
 use kordar\yak\helpers\YakConfigHelper;
@@ -15,7 +16,7 @@ class Yak extends ActiveRecord
 
     public static function getDbSign()
     {
-        return YakConfigHelper::config('db', 'db');
+        return YakConfigHelper::config('yak.db', 'db');
     }
 
     /**
