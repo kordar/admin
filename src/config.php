@@ -56,8 +56,8 @@ return [
         ],
 
         'errorHandler' => [
-            'class' => '\yii\web\ErrorHandler',
             'errorAction' => 'yak/default/error',
+            'class' => '\yii\web\ErrorHandler',
         ],
 
         'response' => [
