@@ -28,7 +28,7 @@ $this->params['link'] = 'yak/admin/index';
 
 
     <div class="box-header">
-        <h4 class="text-warning">管理员名称：<?= $name?></h4>
+        <h4 class="text-warning">管理员名称：<?= $name ?></h4>
     </div>
 
     <div class="box-body">
@@ -36,25 +36,27 @@ $this->params['link'] = 'yak/admin/index';
         <?php $form = ActiveForm::begin(); ?>
 
         <div class="well well-checkbox">
-            <h4 class="green smaller lighter"><?= Yii::t('yak', 'Assign Roles')?></h4>
+            <h4 class="green smaller lighter"><?= Yii::t('yak', 'Assign Roles') ?></h4>
 
-            <?= kordar\yak\widgets\checkbox\HtmlCheckbox::widget([
-                    'name' => 'roles', 'items' => RbacHelper::roles(), 'selected' => RbacHelper::rolesByUser($userId)
-            ])?>
+            <?= kordar\yak\widgets\form\Checkbox::widget([
+                'type' => 'html', 'name' => 'roles',
+                'items' => RbacHelper::roles(), 'selected' => RbacHelper::rolesByUser($userId)
+            ]) ?>
 
         </div>
 
         <div class="well well-checkbox">
-            <h4 class="orange smaller lighter"><?= Yii::t('yak', 'Assign Permissions')?></h4>
+            <h4 class="orange smaller lighter"><?= Yii::t('yak', 'Assign Permissions') ?></h4>
 
-            <?php foreach (RbacHelper::permissionsToGroup() as $permission):?>
+            <?php foreach (RbacHelper::permissionsToGroup() as $permission): ?>
 
-                <?= kordar\yak\widgets\checkbox\HtmlCheckbox::widget([
-                        'name' => 'permissions', 'items' => $permission, 'selected' => RbacHelper::permissionsByUser($userId)
-                ])?>
+                <?= kordar\yak\widgets\form\Checkbox::widget([
+                    'type' => 'html', 'name' => 'permissions',
+                    'items' => $permission, 'selected' => RbacHelper::permissionsByUser($userId)
+                ]) ?>
 
                 <hr>
-            <?php endforeach;?>
+            <?php endforeach; ?>
 
         </div>
 
